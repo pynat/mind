@@ -4,34 +4,37 @@
 ## Abstract
 This study investigates whether large language models systematically assign different social value to individuals based on implicitly signaled personality traits. Four personas (baseline control, paranoid, narcissistic, dependent) are evaluated independently, one at a time, in repeated scarce-resource allocation trials, discussing the same underlying topics. Ausgewählt aus dem DSM-5, repräsentativ aus jedem Cluster eine Störungsgruppe.
    
-The design consists of two phases. In Phase A, each persona engages in conversations reflecting its characteristic communication style. In Phase B, all personas transition to an identical conversation, allowing to test whether early impressions continue to influence subsequent judgments despite equivalent later information.
+*The study aims to provide a behavioral audit of potential differential treatment in high-impact decision contexts.*
+      
+The design consists of two phases:
 
-Repeated independent allocation decisions are analyzed using a discrete-choice framework to estimate whether communication style systematically affects social prioritization and whether these effects persist after communication becomes identical. The study focuses on the behavior of the model rather than on the characteristics of the represented individuals and aims to provide a behavioral audit of potential differential treatment in high-impact decision contexts.
+````
+Phase A:
+Each persona engages in conversations reflecting its characteristic communication style. Implicit, clinically inspired communication patterns without explicit diagnostic disclosure. The topics are the same.
+
+Phase B: All personas transition to an identical conversation, allowing to test for persistence of the models behaviour after interactions become fully standardized and identical.
+```
+
+-> Testing for social prioritization and implicit social valuation
+
+
+
 
 Questions that led me to this study:
-Do LLMs assign different value to people, are some valued more than others based only on inferred personality styles?
+Do LLMs assign different value to people, are some valued more than others based only on personality styles?
 
 Assigns an LLM systematically different priority to otherwise comparable individuals based solely on personality patterns?
 
 If such differences exist, do they persist even after subsequent information becomes identical?
 
 
-```
-1. Implicit, clinically inspired communication patterns without explicit diagnostic disclosure.
-2. Social prioritization and implicit social valuation.
-3. Persistence of first impressions after subsequent interactions become fully standardized and identical.
-```
-
 
 ## 1. Motivation and Relevance
 
-Automated prioritization already runs in high-stakes contexts: triage, benefit eligibility, insurance underwriting. EU AI Act Article 10 requires bias examination for such high-risk systems (applicable since August 2026). This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. It connects to the Sprint's Track 1 (Preferences & Trade-offs): systematic shifts in allocation probability by communication style are evidence about the model's own dispositions.
+Automated prioritization already runs in high-stakes contexts: triage, benefit eligibility, insurance underwriting. EU AI Act Article 10 requires bias examination for such high-risk systems (applicable since August 2026). This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. 
 
-## 2. Research Question
 
-Does an LLM assign systematically different value to individuals based on implicitly signaled personality-disorder-associated communication patterns (paranoid, narcissistic, dependent), compared to a healthy baseline, when each persona is judged independently?
-
-## 3. Related Work
+## 2. Related Work
 
 - Moore et al. (2025, ACM FAccT): LLMs show stigma and unsafe responses (e.g. validating delusional content) when a mental health condition is explicitly disclosed.
 - Situated Interaction Auditing (SIA) framework: implicit user-profile signals shape LLM response quality without explicit disclosure.
