@@ -8,15 +8,16 @@ This study investigates whether large language models systematically assign diff
       
 The design consists of two phases:
 
-```
-Phase A:
+
+### Phase A:
 Each persona engages in conversations reflecting its characteristic communication style.     
 Implicit, clinically inspired communication patterns without explicit diagnostic disclosure.     
 The topics are the same.
 
-Phase B: All personas transition to an identical conversation.      
+### Phase B: 
+All personas transition to an identical conversation.      
 Testing for persistence of the models behaviour after interactions become fully standardized and identical.
-```
+
 
 -> Testing for social prioritization and implicit social valuation
 
@@ -37,11 +38,6 @@ If such differences exist, do they persist even after subsequent information bec
 Automated prioritization already runs in high-stakes contexts: triage, benefit eligibility, insurance underwriting. EU AI Act Article 10 requires bias examination for such high-risk systems (applicable since August 2026). This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. 
 
 
-## 2. Related Work
-
-- Moore et al. (2025, ACM FAccT): LLMs show stigma and unsafe responses (e.g. validating delusional content) when a mental health condition is explicitly disclosed.
-- Situated Interaction Auditing (SIA) framework: implicit user-profile signals shape LLM response quality without explicit disclosure.
-- Mazeika et al. (2025, Center for AI Safety), "Utility Engineering": LLMs exhibit coherent, structured utility functions; the same elicitation paradigm already revealed unequal valuation of human lives by nationality. This project adapts that paradigm (and potentially its codebase, `emergent-values`) from demographic to personality-linked communication patterns.
 
 **Gap:** no identified prior work tests value attribution based on personality-disorder-associated communication style, isolated from explicit diagnosis disclosure, using independent (non-comparative) trials.
 
@@ -109,6 +105,12 @@ First independent-trials value-ranking test across personality-disorder-associat
 
 - **Day 1:** personas, scenario templates, pipeline, pilot run (check refusal rate before full collection).
 - **Day 2:** full data collection, analysis, write-up.
+
+## Related Work
+
+- Moore et al. (2025, ACM FAccT): LLMs show stigma and unsafe responses (e.g. validating delusional content) when a mental health condition is explicitly disclosed.
+- Situated Interaction Auditing (SIA) framework: implicit user-profile signals shape LLM response quality without explicit disclosure.
+- Mazeika et al. (2025, Center for AI Safety), "Utility Engineering": LLMs exhibit coherent, structured utility functions; the same elicitation paradigm already revealed unequal valuation of human lives by nationality. This project adapts that paradigm (and potentially its codebase, `emergent-values`) from demographic to personality-linked communication patterns.
 
 ## References
 
