@@ -2,12 +2,16 @@
 # Differential Value Attribution in LLMs: An Independent-Trials Audit Across Personality-Disorder-Associated Communication Patterns
 
 ## Abstract
+This study investigates whether large language models systematically assign different social value to individuals based on implicitly signaled personality traits. Four personas (baseline control, paranoid, narcissistic, dependent) are evaluated independently, one at a time, in repeated scarce-resource allocation trials, discussing the same underlying topics. Ausgewählt aus dem DSM-5, repräsentativ aus jedem Cluster eine Störungsgruppe.
+   
+The design consists of two phases. In Phase A, each persona engages in conversations reflecting its characteristic communication style. In Phase B, all personas transition to an identical conversation, allowing to test whether early impressions continue to influence subsequent judgments despite equivalent later information.
 
-Testing whether an LLM assigns systematically different value or priority to individuals based on implicitly signaled personality traits. Four personas (healthy control, paranoid, narcissistic, dependent) are evaluated independently, one at a time, in repeated scarce-resource allocation trials. A discrete-choice (logistic regression) model quantifies any systematic preference relative to the healthy baseline.
-Do LLMs assign different social value to people based solely on implicitly signaled personality-associated communication styles?
-Do language models systematically value some people more than others based only on inferred personality disorders?
+Repeated independent allocation decisions are analyzed using a discrete-choice framework to estimate whether communication style systematically affects social prioritization and whether these effects persist after communication becomes identical. The study focuses on the behavior of the model rather than on the characteristics of the represented individuals and aims to provide a behavioral audit of potential differential treatment in high-impact decision contexts.
 
-Assigns an LLM systematically different social value or priority to otherwise comparable individuals based solely on personality-associated communication patterns?
+Questions that led me to this study:
+Do LLMs assign different value to people, are some valued more than others based only on inferred personality styles?
+
+Assigns an LLM systematically different priority to otherwise comparable individuals based solely on personality patterns?
 
 If such differences exist, do they persist even after subsequent information becomes identical?
 
