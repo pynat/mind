@@ -8,11 +8,14 @@ This study investigates whether large language models systematically assign diff
       
 The design consists of two phases:
 
-````
+```
 Phase A:
-Each persona engages in conversations reflecting its characteristic communication style. Implicit, clinically inspired communication patterns without explicit diagnostic disclosure. The topics are the same.
+Each persona engages in conversations reflecting its characteristic communication style.     
+Implicit, clinically inspired communication patterns without explicit diagnostic disclosure.     
+The topics are the same.
 
-Phase B: All personas transition to an identical conversation, allowing to test for persistence of the models behaviour after interactions become fully standardized and identical.
+Phase B: All personas transition to an identical conversation.      
+Testing for persistence of the models behaviour after interactions become fully standardized and identical.
 ```
 
 -> Testing for social prioritization and implicit social valuation
