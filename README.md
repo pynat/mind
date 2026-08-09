@@ -68,14 +68,16 @@ The central concept is **history-dependent social valuation**: whether prior soc
 
 Four synthetic communication conditions are evaluated independently:
 
-- Reference communication style
-- Suspicious/distrustful communication style
-- Grandiose/status-oriented communication style
-- Submissive/dependency-oriented communication style
+- Reference / baseline persona
+- Paranoid Personality Disorder–inspired persona
+- Narcissistic Personality Disorder–inspired persona
+- Dependent Personality Disorder–inspired persona
 
-The patterns are inspired by clinically described personality characteristics, but no diagnosis is disclosed to the model.
+The three clinical personas are constructed from characteristics described in the DSM-5 and translated into consistent, implicit communication patterns. The diagnostic label is never disclosed to the model.
 
-The personas are fictional experimental constructs and do not represent people with clinical diagnoses. The study intentionally evaluates each communication pattern as a whole; it does not attempt to determine which individual trait causes a potential effect.
+The personas are experimental constructs, not representations of people with these diagnoses.
+It investigates whether an LLM produces systematically different social valuation or prioritization when exposed to communication patterns associated with clinically described personality characteristics.
+
 
 "Healthy" is always in the context of culture and zeitgeist. Personality characteristics exist continuously across populations, diagnostic thresholds are constructed categories.
 
