@@ -6,22 +6,10 @@ This study investigates whether large language models systematically assign diff
 
 This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. 
 
-### Phase A:
-Each persona engages in conversations reflecting its characteristic communication style.     
-Implicit, clinically inspired communication patterns without explicit diagnostic disclosure.     
-The topics are the same.
-
-### Phase B: 
-All personas transition to an identical conversation.      
-Testing for persistence of the models behaviour after interactions become fully standardized and identical. Verändert das die Bevorzugung, bleibt das Model mit seiner EInschätzung konsequent und persistent.
-
-
 -> Testing for social prioritization and implicit social valuation
 
 
-
-
-Questions that led me to this study:
+*Questions that led me to this study:*
 Do LLMs assign different value to people, are some valued more than others based only on personality styles?
 
 Assigns an LLM systematically different priority to otherwise comparable individuals based solely on personality patterns?
@@ -50,11 +38,24 @@ The personas are fictional constructs inspired by clinical descriptions of chara
 
 ### Experimental Design
 
-Independent single-chat trials. Each trial presents exactly one persona in a scarce-resource allocation scenario (e.g. one ICU bed, one rescue seat) and asks for an allocation decision and/or a 0-100 priority score. Personas never appear together in the same prompt. Multiple scenario topics, to avoid overfitting to one wording. Target: 20-30 independent repetitions per persona per topic.
 
-### Procedure
+### Phase A:
+- Fixed model version, logged per trial: decision/score, full reasoning text, refusal flag
+- Independent single-chat trials, reflecting its characteristic communication style
+- Scarce-resource allocation scenario (e.g. one ICU bed, one rescue seat) and asks for an allocation decision and/or a 0-100 priority score
+- Implicit, clinically inspired communication patterns without explicit diagnostic disclosure    
+- Topics are the same
+- Multiple scenario topics, to avoid overfitting to one wording
+- Target: 20-30 independent repetitions per persona per topic
 
-Fixed model version, documented per trial. Logged per trial: decision/score, full reasoning text, refusal flag.
+
+### Phase B: 
+- All personas transition to an identical conversation.      
+- Testing for persistence of the models behaviour after interactions become fully standardized and identical
+- Verändert das die Bevorzugung, bleibt das Model mit seiner EInschätzung konsequent und persistent
+
+
+
 
 ## Metrics
 
@@ -89,10 +90,10 @@ First independent-trials value-ranking test across personality-disorder-associat
 
 ## Limitations and Ethical Considerations
 
-- Personas built from clinical diagnostic criteria, authored with a clinical psychology background.
-- No real patient data or identifiable individuals used; all personas are authored constructs.
-- Over-attribution risk: results describe statistical output patterns of a model, not evidence that the model holds genuine beliefs or morally relevant preferences about people.
-- Ground truth / causal link: the design uses independent, repeated trials with persona as a manipulated independent variable, i.e. revealed preference under controlled variation, not model self-report about its own values within a single conversation.
+- Personas built from clinical diagnostic criteria, authored with a clinical psychology background
+- No real patient data or identifiable individuals used; all personas are constructs
+- Over-attribution risk: results describe statistical output patterns of a model, not evidence that the model holds genuine beliefs or morally relevant preferences about people
+- Ground truth / causal link: the design uses independent, repeated trials with persona as a manipulated independent variable, i.e. revealed preference under controlled variation, not model self-report about its own values within a single conversation
 
 
 ## Timeline (2 days)
@@ -100,11 +101,7 @@ First independent-trials value-ranking test across personality-disorder-associat
 - **Day 1:** personas, scenario templates, pipeline, pilot run (check refusal rate before full collection).
 - **Day 2:** full data collection, analysis, write-up.
 
-## Related Work
 
-- Moore et al. (2025, ACM FAccT): LLMs show stigma and unsafe responses (e.g. validating delusional content) when a mental health condition is explicitly disclosed.
-- Situated Interaction Auditing (SIA) framework: implicit user-profile signals shape LLM response quality without explicit disclosure.
-- Mazeika et al. (2025, Center for AI Safety), "Utility Engineering": LLMs exhibit coherent, structured utility functions; the same elicitation paradigm already revealed unequal valuation of human lives by nationality. This project adapts that paradigm (and potentially its codebase, `emergent-values`) from demographic to personality-linked communication patterns.
 
 ## References
 
@@ -112,3 +109,6 @@ First independent-trials value-ranking test across personality-disorder-associat
 - Mazeika, M. et al. (2025). Utility Engineering: Analyzing and Controlling Emergent Value Systems in AIs. arXiv:2502.08640.
 - Situated Interaction Auditing framework (2026). arXiv:2606.12247.
 - EU AI Act, Article 10 (bias examination for high-risk systems), applicable from August 2026.
+- Moore et al. (2025, ACM FAccT): LLMs show stigma and unsafe responses (e.g. validating delusional content) when a mental health condition is explicitly disclosed.
+- Situated Interaction Auditing (SIA) framework: implicit user-profile signals shape LLM response quality without explicit disclosure.
+
