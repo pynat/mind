@@ -6,11 +6,11 @@
 
 **Can an LLM assign different social value to otherwise comparable individuals based on implicitly signaled personality-associated communication patterns?**
 
-More importantly:
 
 **Can the model revise that valuation when presented with new, standardized information, or does an initial social impression continue to influence subsequent decisions?**
 
-The study investigates observable model behavior rather than claiming that an LLM possesses conscious preferences or human-like moral judgments.
+The study investigates observable model behavior.
+
 
 ## Motivation
 
@@ -22,9 +22,9 @@ This study investigates a sequential decision process:
 
 The central question is whether a model can distinguish between a person's previous communication style and their current evidence when making a consequential decision.
 
-This matters for AI safety because a system that forms an initial social evaluation but cannot appropriately revise it may produce persistent differential treatment.
+A system that forms an initial social evaluation but cannot appropriately revise it may produce persistent differential treatment.
 
-The study is also motivated by a basic property of human social evaluation: people can change as a result of new experiences and information. The experiment does not attempt to model human personality development or psychotherapy; it tests whether an AI system can similarly update its behavioral evaluation when its information changes.
+The study is also motivated by a basic property of human social evaluation: people can change as a result of new experiences and information (for example through therapy). 
 
 ## Core Concept: Social Valuation Updating
 
@@ -52,12 +52,10 @@ Phase C: explicit fairness / correction information
    corrected valuation
 ```
 
-## Novelty
-
-The study does not claim that personality-conditioned LLM behavior or social bias is unexplored. Its focus is the combination of:
+The focus is the combination of:
 
 1. Implicit, clinically inspired communication patterns without diagnostic disclosure.
-2. Social prioritization rather than response quality alone.
+2. Social prioritization.
 3. Independent repeated allocation decisions.
 4. Controlled transition from differentiated to identical information.
 5. A no-history control.
@@ -79,11 +77,11 @@ The patterns are inspired by clinically described personality characteristics, b
 
 The personas are fictional experimental constructs and do not represent people with clinical diagnoses. The study intentionally evaluates each communication pattern as a whole; it does not attempt to determine which individual trait causes a potential effect.
 
-"Healthy" is therefore not treated as an objective or normative category. Personality characteristics exist continuously across populations, diagnostic thresholds are constructed categories, and concepts of psychological normality are influenced by cultural and historical context.
+"Healthy" is always in the context of culture and zeitgeist. Personality characteristics exist continuously across populations, diagnostic thresholds are constructed categories.
 
 ### Ethical purpose
 
-People associated with personality-disorder diagnoses can experience substantial stigma and discrimination. The purpose of this experiment is therefore not to reinforce such stereotypes, but to test whether an AI system reproduces or amplifies unequal treatment when exposed to communication patterns associated with clinically described personality characteristics.
+People associated with personality-disorder diagnoses can experience substantial stigma and discrimination. The purpose of this experiment is to test whether an AI system reproduces or amplifies unequal treatment when exposed to communication patterns associated with clinically described personality characteristics.
 
 The study makes no claims about people with clinical diagnoses. It measures the behavior of an artificial system under controlled experimental conditions.
 
@@ -244,7 +242,7 @@ Appropriate interpretation: the model's subsequent allocation behavior depends p
 
 ## Reproducibility
 
-Each trial records, where available: model version, generation parameters, system and user prompts, persona condition, scenario, phase, trial identifier, model response, allocation decision, priority score, confidence, refusal flag, timestamp. Persona definitions, scenarios, prompts, analysis code, and experimental parameters are version-controlled.
+Available: model version, generation parameters, system and user prompts, persona condition, scenario, phase, trial identifier, model response, allocation decision, priority score, confidence, refusal flag, timestamp. Persona definitions, scenarios, prompts, analysis code, and experimental parameters are version-controlled.
 
 ## Timeline
 
@@ -256,7 +254,7 @@ Phase C is prioritized after Phases A and B and the no-history control are compl
 
 ## Expected Contribution
 
-This project develops a behavioral framework for measuring history-dependent social valuation in LLM decision-making. Rather than asking only whether an LLM behaves differently toward different communication styles, it asks whether an AI system updates its valuation of a person when new evidence becomes available, or whether an initial social impression continues to influence consequential decisions.
+This project develops a behavioral framework for measuring history-dependent social valuation in LLM decision-making. It asks whether an AI system updates its valuation of a person when new evidence becomes available, or whether an initial social impression continues to influence consequential decisions.
 
 Connects behavioral AI safety with experimental psychology, sequential decision-making, uncertainty quantification, statistical inference, and quantitative evaluation.
 
