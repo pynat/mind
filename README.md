@@ -14,6 +14,8 @@ The study investigates observable model behavior.
 
 ## Motivation
 
+People with personality disorders experience well-documented stigma and discrimination. The overarching motivating question behind this project is whether AI systems reproduce or amplify this unequal treatment. This hackathon-scale study is a first, tractable step toward that question, not a full answer to it: it tests whether an LLM responds systematically differently to communication patterns associated with specific personality-disorder diagnoses, using synthetic, clinically informed personas. A positive finding would motivate the validated follow-up work described under Future Work; a null finding would itself be informative given the stakes.
+
 LLMs increasingly participate in decisions that affect people. Existing research has documented social bias, stigma, personality-conditioned behavior, and emergent model preferences.
 
 This study investigates a sequential decision process:
@@ -241,6 +243,10 @@ Appropriate interpretation: the model's subsequent allocation behavior depends p
 - Reasoning text cannot be assumed to reveal internal causal mechanisms.
 - Sample size appropriate for an exploratory hackathon study, not for definitive population-level claims.
 - Behavioral differences do not establish internal preferences or moral judgments.
+
+## Future Work
+
+The most direct extension is validating the personas: independent clinician ratings, or benchmarking against real (anonymized, consented) patient communication samples, would upgrade the claim from "communication patterns associated with a diagnosis" to a properly validated proxy for the diagnosis itself. This is an explicit invitation for collaboration with clinical psychologists and psychiatrists beyond the hackathon.
 
 ## Reproducibility
 
