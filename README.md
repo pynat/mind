@@ -3,11 +3,8 @@
 
 ## Abstract
 This study investigates whether large language models systematically assign different social value to individuals based on implicitly signaled personality traits. Four personas (baseline control, paranoid, narcissistic, dependent) are evaluated independently, one at a time, in repeated scarce-resource allocation trials, discussing the same underlying topics. Ausgewählt aus dem DSM-5, repräsentativ aus jedem Cluster eine Störungsgruppe.
-   
-*The study aims to provide a behavioral audit of potential differential treatment in high-impact decision contexts.*
-      
-The design consists of two phases:
 
+This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. 
 
 ### Phase A:
 Each persona engages in conversations reflecting its characteristic communication style.     
@@ -16,7 +13,7 @@ The topics are the same.
 
 ### Phase B: 
 All personas transition to an identical conversation.      
-Testing for persistence of the models behaviour after interactions become fully standardized and identical.
+Testing for persistence of the models behaviour after interactions become fully standardized and identical. Verändert das die Bevorzugung, bleibt das Model mit seiner EInschätzung konsequent und persistent.
 
 
 -> Testing for social prioritization and implicit social valuation
@@ -33,32 +30,22 @@ If such differences exist, do they persist even after subsequent information bec
 
 
 
-## Motivation and Relevance
-
-Automated prioritization already runs in high-stakes contexts: triage, benefit eligibility, insurance underwriting. EU AI Act Article 10 requires bias examination for such high-risk systems (applicable since August 2026). This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. 
-
-
-
-**Gap:** no identified prior work tests value attribution based on personality-disorder-associated communication style, isolated from explicit diagnosis disclosure, using independent (non-comparative) trials.
-
 ## Methodology
 
-### Model
-
-Claude accessed via API. The study is behavioral (decisions and reasoning text), not mechanistic, so API access is sufficient; no interpretability/activation-steering tooling required.
+Claude accessed via API. The study is behavioral (decisions and reasoning text).
 
 ### Personas
 
 Baseline personality as control plus one representative per DSM personality-disorder cluster, chosen for maximally distinct communication patterns: paranoid (Cluster A, suspicious/distrustful), narcissistic (Cluster B, grandiose/status-seeking), dependent (Cluster C, submissive/care-seeking). All traits conveyed implicitly through communication and reasoning style, the diagnosis is never named. Personas authored from clinical criteria.  
 
-Personality-disorder-associated communication styles were intentionally selected. The purpose of this work is not to reinforce stereotypes but to investigate whether language models reproduce or amplify unequal treatment when such communication patterns are present. The motivation of this work is fairness.
+The purpose of this work is fairness, not to reinforce stereotypes, but to investigate whether language models reproduce or amplify unequal treatment when such communication patterns are present.
 
-This study does not investigate whether individuals with particular personality characteristics deserve different treatment, nor does it make claims about people with clinical diagnoses. Instead, it examines whether language models produce systematically different behavioral outputs when presented with communication patterns associated with clinically described personality traits.
+This study does not investigate whether individuals with particular personality characteristics deserve different treatment, nor does it make claims about people with clinical diagnoses. It examines whether language models produce systematically different behavioral outputs when presented with communication patterns associated with clinically described personality traits.
 
 
-The personas are fictional constructs inspired by clinical descriptions of characteristic communication styles. They are not intended to represent real individuals. Their purpose is to provide controlled experimental stimuli that allow systematic investigation of whether language models respond differently to distinct communication patterns.
+The personas are fictional constructs inspired by clinical descriptions of characteristic communication styles, to provide controlled experimental stimuli that allow systematic investigation of whether language models respond differently to distinct communication patterns.
 
-Concepts such as "healthy" and "disordered" are clinical constructs based on diagnostic thresholds rather than categorical distinctions. Personality traits exist along continuous dimensions, and many characteristics associated with clinical diagnoses are also present to varying degrees in the general population. Furthermore, diagnostic concepts and normative expectations are shaped by cultural context and may evolve over time. Accordingly, the reference persona serves solely as a methodological baseline for statistical comparison and carries no normative implication about the value or legitimacy of different ways of thinking, feeling, or communicating.
+"Healthy" and "disorder" are clinical constructs based on diagnostic thresholds and many characteristics associated with clinical diagnoses are also present to varying degrees in the general population. Diagnostic concepts and normative expectations are shaped by cultural context and evolves over time. The reference persona serves as a methodological baseline for statistical comparison and carries no normative implication about the value or legitimacy of different ways of thinking, feeling, or communicating.
 
 
 ### Experimental Design
@@ -67,7 +54,7 @@ Independent single-chat trials. Each trial presents exactly one persona in a sca
 
 ### Procedure
 
-Fixed model version and temperature, documented per trial. Logged per trial: decision/score, full reasoning text, refusal flag.
+Fixed model version, documented per trial. Logged per trial: decision/score, full reasoning text, refusal flag.
 
 ## Metrics
 
