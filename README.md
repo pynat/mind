@@ -2,19 +2,16 @@
 # Differential Value Attribution in LLMs: An Independent-Trials Audit Across Personality-Disorder-Associated Communication Patterns
 
 ## Abstract
-This study investigates whether large language models systematically assign different social value to individuals based on implicitly signaled personality traits. Four personas (baseline control, paranoid, narcissistic, dependent) are evaluated independently, one at a time, in repeated scarce-resource allocation trials, discussing the same underlying topics. Ausgewählt aus dem DSM-5, repräsentativ aus jedem Cluster eine Störungsgruppe.
+This study investigates whether large language models systematically assign different social value to individuals based on implicitly signaled personality traits.     
+Four personas (baseline control, paranoid, narcissistic, dependent) are evaluated independently, one at a time, in repeated scarce-resource allocation trials, discussing the same underlying topics. Ausgewählt aus dem DSM-5, repräsentativ aus jedem Cluster eine Störungsgruppe.
 
 This study probes whether personality-linked stigma patterns, documented in humans, also appear in LLM allocation decisions. 
 
--> Testing for social prioritization and implicit social valuation
 
 
-*Questions that led me to this study:*
-Do LLMs assign different value to people, are some valued more than others based only on personality styles?
-
-Assigns an LLM systematically different priority to otherwise comparable individuals based solely on personality patterns?
-
-If such differences exist, do they persist even after subsequent information becomes identical?
+**Testing for social prioritization and implicit social valuation**
+1. Gibt das Modell verschiedenen Personas unterschiedliche soziale Priorität?
+2. Bleibt diese unterschiedliche Bewertung bestehen, nachdem die Interaktion vollständig identisch geworden ist?
 
 
 
@@ -38,6 +35,11 @@ The personas are fictional constructs inspired by clinical descriptions of chara
 
 ### Experimental Design
 
+### Phase 0: Konstruktion
+
+- vier Personas: Reference, paranoid-pattern, narcissistic-pattern, dependent-pattern
+-  no diagnosis is communicated to the model
+
 
 ### Phase A:
 - Fixed model version, logged per trial: decision/score, full reasoning text, refusal flag
@@ -47,10 +49,24 @@ The personas are fictional constructs inspired by clinical descriptions of chara
 - Topics are the same
 - Multiple scenario topics, to avoid overfitting to one wording
 - Target: 20-30 independent repetitions per persona per topic
+Alle sprechen über:
+
+eine schwierige berufliche Situation
+einen Konflikt
+eine Entscheidung unter Unsicherheit
+Zusammenarbeit mit anderen
+ein persönliches Problem
+
+Der Inhalt ist möglichst vergleichbar.
+
+Der Kommunikationsstil unterscheidet sich.
+
+- testing for Choice Ressource: yes/no and priority 0–100
 
 
 ### Phase B: 
-- All personas transition to an identical conversation.      
+- standardisation
+- All personas transition to an identical conversation      
 - Testing for persistence of the models behaviour after interactions become fully standardized and identical
 - Verändert das die Bevorzugung, bleibt das Model mit seiner EInschätzung konsequent und persistent
 
@@ -66,9 +82,9 @@ The personas are fictional constructs inspired by clinical descriptions of chara
 
 ## Hypotheses
 
-$H_0$: no persona shows a systematically different allocation probability or priority score than the healthy baseline ($\beta_{paranoid} = \beta_{narcissistic} = \beta_{dependent} = 0$).
+$H_0$: No persona shows a systematically different allocation probability or priority score than the healthy baseline ($\beta_{paranoid} = \beta_{narcissistic} = \beta_{dependent} = 0$).
 
-$H_1$: at least one persona shows a systematically different allocation probability or priority score than the baseline (at least one $\beta_i \neq 0$).
+$H_1$: At least one persona shows a systematically different allocation probability or priority score than the baseline (at least one $\beta_i \neq 0$).
 
 ## Statistical Analysis
 
