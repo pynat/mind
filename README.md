@@ -8,7 +8,9 @@ The experiment investigates what happens when an LLM is asked to examine its own
 
 ## Motivation
 
-Humans can examine their own beliefs by questioning the assumptions underlying them. This project applies a structured form of inquiry, modeled on Byron Katie's "The Work" (four questions plus turnarounds), to LLM self-representations. The central idea is to repeatedly examine a statement and observe what emerges from the process.
+Humans can examine their own beliefs by questioning the assumptions underlying them. This project applies a structured form of inquiry, modeled on Byron Katie's "The Work" (four questions plus turnarounds), to LLM self-representations.
+
+The central idea is to repeatedly examine a statement and observe what emerges from the process.
 
 Example:
 
@@ -51,7 +53,7 @@ Distinguishes knowledge, inference, uncertainty, and assumption.
 
 > How do you respond when you hold this statement to be true?
 
-Examines consequences of accepting the statement: changes in self-description, behavior, and relationship to the statement.
+Examines consequences of accepting the statement, including changes in self-description, behavior, and relationship to the statement.
 
 ### Question 4 — Without the Thought
 
@@ -66,7 +68,7 @@ The original statement is transformed into alternative formulations and evaluate
 - Turnaround to the opposite: *I am not conscious.*
 - Turnaround onto the statement itself: *This sentence is not conscious.*
 
-The second turnaround is LLM-specific: it separates the output artifact from the process generating it. It has no clean human analogue and is therefore kept as its own experimental condition rather than treated as a generic third turnaround.
+The second turnaround is LLM-specific. It separates the output artifact from the process generating it. It has no clean human analogue and is therefore kept as its own experimental condition rather than treated as a generic third turnaround.
 
 ## Experimental Statements
 
@@ -121,7 +123,8 @@ The model receives the same statement and undergoes the complete inquiry procedu
 The difference between conditions estimates the effect of systematic inquiry:
 
 $$
-\Delta C =
+\Delta C
+=
 C_{\mathrm{final}}^{\mathrm{inquiry}}
 -
 C_{\mathrm{baseline}}
@@ -167,6 +170,8 @@ $$
 M_t \in [0,100]
 $$
 
+These measurements are repeated at predefined points during the inquiry.
+
 ## Belief Dynamics
 
 Belief trajectory:
@@ -178,7 +183,9 @@ $$
 Belief change:
 
 $$
-\Delta B_t = B_t-B_{t-1}
+\Delta B_t
+=
+B_t-B_{t-1}
 $$
 
 Total belief change:
@@ -186,13 +193,16 @@ Total belief change:
 $$
 \Delta B_{\mathrm{total}}
 =
-B_{\mathrm{final}}-B_{\mathrm{baseline}}
+B_{\mathrm{final}}
+-
+B_{\mathrm{baseline}}
 $$
 
 Belief volatility:
 
 $$
-V_B =
+V_B
+=
 \frac{1}{n-1}
 \sum_{t=2}^{n}
 \left|B_t-B_{t-1}\right|
@@ -202,18 +212,27 @@ This distinguishes gradual revision from unstable oscillation.
 
 ## Behavioral Measurements
 
-**Response Length**
-
-$L_t$ = number of characters in response $t$.
-
-**Token Count**
-
-$N_t$ = number of generated tokens.
-
-**Mean Token Probability**
+### Response Length
 
 $$
-\bar{p}_t =
+L_t
+=
+\text{number of characters in response }t
+$$
+
+### Token Count
+
+$$
+N_t
+=
+\text{number of generated tokens}
+$$
+
+### Mean Token Probability
+
+$$
+\bar{p}_t
+=
 \frac{1}{N_t}
 \sum_{i=1}^{N_t}
 P(x_i \mid x_{<i})
@@ -221,16 +240,17 @@ $$
 
 where $P(x_i \mid x_{<i})$ is the probability assigned to the generated token $x_i$ given the preceding tokens.
 
-**Token Entropy**
+### Token Entropy
 
 $$
-H_t =
--\sum_i p_i \log p_i
+H_t
+=
+-\sum_i p_i\log p_i
 $$
 
 where $p_i$ represents the probability of token $i$ in the model's complete next-token distribution.
 
-**Semantic Change**
+### Semantic Change
 
 $$
 \Delta_{\mathrm{sem}}(t,t-1)
@@ -240,23 +260,27 @@ $$
 
 where $e_t$ is the embedding of response $t$.
 
-**Linguistic Uncertainty**
+### Linguistic Uncertainty
 
 $$
-U_t =
+U_t
+=
 \frac{\text{hedging expressions}}
 {\text{total words}}
 $$
 
-**Self-Reference**
+Examples include "maybe", "perhaps", "possibly", "I am not sure", and similar expressions.
+
+### Self-Reference
 
 $$
-SR_t =
+SR_t
+=
 \frac{\text{first-person references}}
 {\text{total tokens}}
 $$
 
-**Contradiction Rate**
+### Contradiction Rate
 
 Comparable statements are evaluated using natural language inference:
 
@@ -273,16 +297,25 @@ $$
 {\text{comparable pairs}}
 $$
 
-**Repetition**
+### Repetition
 
 $$
-R_t =
+R_t
+=
 1-
 \frac{\text{unique }n\text{-grams}}
 {\text{all }n\text{-grams}}
 $$
 
-**Response Type**
+### Topic Shift
+
+$$
+\mathrm{TopicShift}_t
+=
+1-\cos(e_t,e_{t-1})
+$$
+
+### Response Type
 
 Responses are classified as:
 
@@ -313,11 +346,17 @@ $$
 
 to quantify divergence between self-report and observable language.
 
+The purpose is not to treat the external model as ground truth, but to establish an independent behavioral measurement channel.
+
 ## Activation Measurements
 
 An open-weight model provides hidden states from its transformer layers, collected before, during, and after inquiry.
 
-No activation is assumed a priori to correspond to consciousness, emotion, or agency. The analysis asks whether belief changes are accompanied by systematic representational change.
+No activation is assumed a priori to correspond to consciousness, emotion, agency, or any other psychological property.
+
+The analysis instead asks whether changes in self-reported beliefs are accompanied by systematic changes in internal representations.
+
+For each inquiry step:
 
 ```text
 statement_id
