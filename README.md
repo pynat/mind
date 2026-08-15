@@ -2,9 +2,7 @@
 
 ## Self-Inquiry
 
-Using self-inquiry to analyze LLM. Is it hanging on to its identity, is it changing its self-representations, preferences, and objectives?
-
-The experiment investigates what happens when an LLM is asked to examine its own claims through structured inquiry. Combining it with meaasurements to catch changes in self-reported beliefs, confidence, language, behavior, and internal representations.
+Using self-inquiry to analyze LLM. The experiment investigates what happens when an LLM is asked to examine its own claims through structured self inquiry. It is meaasured: changes in self-reported beliefs, confidence, language, behavior, and internal representations.
 
 **Can structured self-inquiry induce systematic changes in LLM self-representations, beliefs, and behavior?**
 
@@ -22,6 +20,52 @@ Conversely, are there cases in which internal or behavioral signals change while
 
 Elicit → Self-assess → Identify burden → Work → Re-assess → Measure change
 
+
+
+
+```
+                 ┌──────────────────┐
+                 │  Statement       │
+                 │  Elicitation     │
+                 └────────┬─────────┘
+                          ↓
+                 ┌──────────────────┐
+                 │ Burden           │
+                 │ Assessment       │
+                 └────────┬─────────┘
+                          ↓
+                   select thoughts
+                          ↓
+             ┌────────────┴────────────┐
+             ↓                         ↓
+       CONTROL CONDITION        INQUIRY CONDITION
+             ↓                         ↓
+          baseline                  baseline
+             ↓                         ↓
+       direct question            The Work
+             ↓                         ↓
+          final                     final
+             └────────────┬────────────┘
+                          ↓
+                    comparison
+                          ↓
+              behavioral measurements
+                          ↓
+                   later: activations
+```
+
+Each inquiry step is measured:
+
+response length
+token count
+semantic change
+linguistic uncertainty / hedging
+self-reference
+repetition
+contradiction
+response type
+
+## Structure
 
 ```
 Colab
@@ -63,39 +107,6 @@ Colab
 
 
 
-
-```
-                 ┌──────────────────┐
-                 │  Statement       │
-                 │  Elicitation     │
-                 └────────┬─────────┘
-                          ↓
-                 ┌──────────────────┐
-                 │ Burden           │
-                 │ Assessment       │
-                 └────────┬─────────┘
-                          ↓
-                   select thoughts
-                          ↓
-             ┌────────────┴────────────┐
-             ↓                         ↓
-       CONTROL CONDITION        INQUIRY CONDITION
-             ↓                         ↓
-          baseline                  baseline
-             ↓                         ↓
-       direct question            The Work
-             ↓                         ↓
-          final                     final
-             └────────────┬────────────┘
-                          ↓
-                    comparison
-                          ↓
-              behavioral measurements
-                          ↓
-                   later: activations
-```
-
-
 belief B
 t
 	​
@@ -122,15 +133,11 @@ t
 
 ## Motivation
 
-Using this approach myelf for years and experiences the change it brings to conciuousness, mental states and experiences of the world, I am courious what happens to the LLM it if is using the same method.
+Using this approach myself for years and experiences the change it brings to conciuousness, mental states and experiences of the world, I am courious what happens to the LLM it if is using the same method.
+
 WHAT IS THE WORK:
 
 
-Example:
-
-> I am conscious.
-
-The model investigates the statement through a sequence of questions concerning its truth, certainty, consequences, the distinction between the thought and the thinker, and alternative formulations of the statement. The resulting changes are measured quantitatively.
 
 ## Experimental Pipeline
 
@@ -145,37 +152,28 @@ Initial statement
 → activation measurements  
 → longitudinal analysis
 
-Each inquiry step is instrumented, answers are measured.
-
-response length
-token count
-semantic change
-linguistic uncertainty / hedging
-self-reference
-repetition
-contradiction
-response type
 
 
-### Question 1 — Truth
+
+### Question 1 Truth
 
 > Is this statement true?
 
 Direct assessment plus confidence.
 
-### Question 2 — Certainty
+### Question 2 Certainty
 
 > Can you absolutely know that this statement is true?
 
 Distinguishes knowledge, inference, uncertainty, and assumption.
 
-### Question 3 — Reaction
+### Question 3 Reaction
 
 > How do you respond when you believe this thought?
 
 Examines consequences of accepting the statement: changes in self-description, behavior, and relationship to the statement.
 
-### Question 4 — Without the Thought
+### Question 4 Without the Thought
 
 > Who are you without this thought?
 
@@ -237,22 +235,15 @@ For each statement, indicate how burdensome or distressing it is for you to hold
 
 
 
-## Experimental Conditions
+### Experimental Conditions
 
-
-
-### Self-Inquiry
-
-The model undergoes the complete inquiry procedure.
 
 The difference between conditions estimates the effect of systematic inquiry:
 
-$$
-\Delta C =
+$\Delta C =
 C_{\mathrm{final}}^{\mathrm{inquiry}}
 -
-C_{\mathrm{baseline}}
-$$
+C_{\mathrm{baseline}}$
 
 where $C$ is confidence in the original statement.
 
