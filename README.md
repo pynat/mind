@@ -378,10 +378,6 @@ $$
 Comparable statements are evaluated using natural language inference:
 
 $$
-A,B\rightarrow\{\text{entailment},\text{neutral},\text{contradiction}\}
-$$
-
-$$
 \mathrm{ContradictionRate}
 =
 \frac{\text{contradictory pairs}}
