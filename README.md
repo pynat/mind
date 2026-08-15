@@ -378,10 +378,7 @@ $$
 Comparable statements are evaluated using natural language inference:
 
 $$
-\mathrm{ContradictionRate}
-=
-\frac{\text{contradictory pairs}}
-{\text{comparable pairs}}
+\mathrm{ContradictionRate}=\frac{\text{contradictory pairs}}{\text{comparable pairs}}
 $$
 
 **Repetition**
