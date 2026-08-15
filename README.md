@@ -305,7 +305,7 @@ $$
 Total belief change:
 
 $$
-\Delta B_{\mathrm{total}}=B_{\mathrm{final}}-B_{\mathr{baseline}}
+\Delta B_{\mathrm{total}}=B_{\mathrm{final}}-B_{\mathrm{baseline}}
 $$
 
 Belief volatility:
@@ -352,9 +352,7 @@ where $p_i$ represents the probability of token $i$ in the model's complete next
 **Semantic Change**   
 
 $$  
-\Delta_{\mathrm{sem}}(t,t-1)
-=
-1-\cos(e_t,e_{t-1})
+\Delta_{\mathrm{sem}}(t,t-1)=1-\cos(e_t,e_{t-1})
 $$
 
 where $e_t$ is the embedding of response $t$.
