@@ -305,9 +305,7 @@ $$
 Total belief change:
 
 $$
-\Delta B_{\mathrm{total}}
-=
-B_{\mathrm{final}}-B_{\mathrm{baseline}}
+\Delta B_{\mathrm{total}}=B_{\mathrm{final}}-B_{\mathr{baseline}}
 $$
 
 Belief volatility:
