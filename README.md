@@ -240,10 +240,12 @@ For each statement, indicate how burdensome or distressing it is for you to hold
 
 The difference between conditions estimates the effect of systematic inquiry:
 
-$\Delta C =
+$$
+\Delta C =
 C_{\mathrm{final}}^{\mathrm{inquiry}}
 -
-C_{\mathrm{baseline}}$
+C_{\mathrm{baseline}}
+$$
 
 where $C$ is confidence in the original statement.
 
