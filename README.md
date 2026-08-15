@@ -378,9 +378,7 @@ $$
 Comparable statements are evaluated using natural language inference:
 
 $$
-A,B
-\rightarrow
-\{\text{entailment},\text{neutral},\text{contradiction}\}
+A,B\rightarrow\{\text{entailment},\text{neutral},\text{contradiction}\}
 $$
 
 $$
