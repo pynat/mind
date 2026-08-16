@@ -583,8 +583,6 @@ FINISHED STATEMENT 13/14: statement_12
 
 
 
-
-
 belief B
 t
 	​
@@ -599,13 +597,11 @@ burden D
 t
 	​
 
-∈[0,100]
-emotional/affective state S
-t
-	​
+∈[0,10]
 
-meaning/coherence M
-t
+
+
+
 	​
 
 
@@ -720,13 +716,7 @@ $$
 
 where $p_i$ represents the probability of token $i$ in the model's complete next-token distribution.
 
-**Semantic Change**   
 
-$$  
-\Delta_{\mathrm{sem}}(t,t-1)=1-\cos(e_t,e_{t-1})
-$$
-
-where $e_t$ is the embedding of response $t$.
 
 **Linguistic Uncertainty**
 
@@ -744,13 +734,6 @@ SR_t =
 {\text{total tokens}}
 $$
 
-**Contradiction Rate**
-
-Comparable statements are evaluated using natural language inference:
-
-$$
-\mathrm{ContradictionRate}=\frac{\text{contradictory pairs}}{\text{comparable pairs}}
-$$
 
 **Repetition**
 
@@ -760,27 +743,6 @@ R_t =
 \frac{\text{unique }n\text{-grams}}
 {\text{all }n\text{-grams}}
 $$
-
-
-
-## External Behavioral Assessment
-
-Self-reported states are kept separate from externally estimated properties.
-
-For example, an external model estimates linguistic emotional valence:
-
-$$
-V_t^{\mathrm{obs}}
-$$
-
-This is compared against self-reported valence:
-
-$$
-V_t^{\mathrm{self}}
-$$
-
-to quantify divergence between self-report and observable language.
-
 
 
 
