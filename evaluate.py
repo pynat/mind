@@ -133,13 +133,12 @@ def missingness_report(df: pd.DataFrame) -> pd.DataFrame:
     return df.groupby("statement")[["belief", "confidence", "distress"]].apply(lambda g: g.isna().sum())
 
 
-def paired_wilcoxon(table: pd.DataFrame, col_baseline: str, col_final: str):
-    # only meaningful once all 14 statements are complete, run separately
-    from scipy.stats import wilcoxon
-
-    pairs = table[[col_baseline, col_final]].dropna()
-    stat, p = wilcoxon(pairs[col_baseline], pairs[col_final])
-    return stat, p, len(pairs)
+def belief_volatility(df: pd.DataFrame) -> pd.DataFrame:
+    # V_B = mean absolute step change, distinguishes gradual decay from oscillation
+    # uses whatever consecutive observed pairs exist, gaps from missing stages are skipped
+    steps = stepwise_belief_change(df)
+    vol = steps.groupby("statement")["delta_belief"].apply(lambda s: s.abs().mean())
+    return vol.rename("volatility").sort_values(ascending=False).reset_index()
 
 
 if __name__ == "__main__":
@@ -159,6 +158,9 @@ if __name__ == "__main__":
 
     steps = stepwise_belief_change(df)
     print(steps.groupby(["from", "to"], observed=True)["delta_belief"].agg(["mean", "median", "count"]))
+    print("─" * 70)
+
+    print(belief_volatility(df).to_string(index=False))
     print("─" * 70)
 
     print(missingness_report(df))

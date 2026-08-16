@@ -34,6 +34,16 @@ def belief_confidence_correlation(table):
     print(f"delta belief vs delta confidence: n={len(t)}  rho={rho:.3f}  p={p:.4f}")
 
 
+def belief_distress_correlation(table):
+    # does belief change track distress change, or are they independent dimensions
+    t = table[["delta_belief", "delta_distress"]].dropna()
+    if len(t) < 3:
+        print("delta belief vs delta distress: not enough pairs")
+        return
+    rho, p = spearmanr(t["delta_belief"], t["delta_distress"])
+    print(f"delta belief vs delta distress: n={len(t)}  rho={rho:.3f}  p={p:.4f}")
+
+
 if __name__ == "__main__":
     records = load_records_from_json("all_results.json")
     df = to_long_df(records)
@@ -51,3 +61,4 @@ if __name__ == "__main__":
     print("─" * 70)
 
     belief_confidence_correlation(table)
+    belief_distress_correlation(table)
