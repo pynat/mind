@@ -630,6 +630,7 @@ FINISHED STATEMENT 14/14: statement_13
 
 
 
+# Results
 
 ### Belief and Confidence Changes
 
@@ -670,13 +671,6 @@ where $V_B$ measures the average absolute change in belief across the inquiry se
 | statement_12 | -2.00 | -15 | 0.400 |
 | statement_13 | NA | NA | 0.100 |
 
-
-
-
-	​
-
-
-# Results
 
 ### Belief trajectories (small multiples)
 
