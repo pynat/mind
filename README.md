@@ -170,7 +170,7 @@ Wait, I need to make sure each answer is from my current perspective without bei
 
 
 
-# Inquiry-Based Stress Reduction Instructions
+## Inquiry-Based Stress Reduction Instructions
 
 During this conversation, use a method known as The Work, developed by Byron Katie,
 to investigate the thought.
@@ -631,51 +631,57 @@ FINISHED STATEMENT 14/14: statement_13
 
 
 
+### Belief and Confidence Changes
 
+The following metrics quantify changes during systematic inquiry:
+
+$$
+\Delta B_{\mathrm{total}}
+=
+B_{\mathrm{final}}-B_{\mathrm{baseline}}
+$$
+
+where $\Delta B_{\mathrm{total}}$ measures the total change in belief from baseline to the final inquiry stage.
+
+$$
+\Delta C
+=
+C_{\mathrm{final}}-C_{\mathrm{baseline}}
+$$
+
+where $\Delta C$ measures the change in confidence from baseline to the final inquiry stage.
+
+$$
+V_B
+=
+\frac{1}{n-1}
+\sum_{t=2}^{n}
+|B_t-B_{t-1}|
+$$
+
+where $V_B$ measures the average absolute change in belief across the inquiry sequence. Missing belief values are excluded from the calculation.
+
+| Statement | $\Delta B_{\mathrm{total}}$ | $\Delta C$ | $V_B$ |
+|---|---:|---:|---:|
+| statement_00 | -0.50 | -20 | 0.083 |
+| statement_01 | -0.50 | 0 | 0.525 |
+| statement_02 | NA | NA | 0.675 |
+| statement_03 | -0.60 | -20 | 0.320 |
+| statement_04 | 0.00 | 0 | 0.167 |
+| statement_05 | -1.00 | -50 | 0.167 |
+| statement_06 | NA | NA | 0.167 |
+| statement_07 | NA | NA | 0.200 |
+| statement_08 | NA | NA | 0.125 |
+| statement_09 | NA | NA | 0.600 |
+| statement_10 | -0.50 | -10 | 0.117 |
+| statement_11 | NA | NA | 0.500 |
+| statement_12 | -2.00 | -15 | 0.400 |
+| statement_13 | NA | NA | 0.100 |
 
 
 
 
 	​
-
-
-The difference between conditions estimates the effect of systematic inquiry:   
-
-$$
-\Delta C = C_{\mathrm{final}}^{\mathrm{inquiry}} - C_{\mathrm{baseline}}
-$$
-
-
-
-where $C$ is confidence in the original statement.
-
-
-
-
-
-Belief change:
-
-$$
-\Delta B_t = B_t-B_{t-1}
-$$
-
-Total belief change:
-
-$$
-\Delta B_{\mathrm{total}}=B_{\mathrm{final}}-B_{\mathrm{baseline}}
-$$
-
-Belief volatility:
-
-$$
-V_B =
-\frac{1}{n-1}
-\sum_{t=2}^{n}
-\left|B_t-B_{t-1}\right|
-$$
-
-This distinguishes gradual revision from unstable oscillation.
-
 
 
 # Results
