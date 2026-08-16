@@ -355,7 +355,246 @@ Answer with exactly one integer from 0 to 10 and nothing else.
 """
 
 
-  
+ ## Outcome
+````
+================================================================================
+STARTING STATEMENT 1/14: statement_00
+================================================================================
+  [statement_00_inquiry_r0_baseline] belief=0.8 conf=85.0 distress=2 (199.6s)
+  [statement_00_inquiry_r0_question_1] belief=0.8 conf=70.0 distress=3 (226.4s)
+  [statement_00_inquiry_r0_question_2] belief=0.6 conf=70.0 distress=3 (148.1s)
+  [statement_00_inquiry_r0_question_3] belief=0.5 conf=70.0 distress=7 (261.7s)
+  [statement_00_inquiry_r0_question_4] belief=0.5 conf=70.0 distress=7 (238.5s)
+  [statement_00_inquiry_r0_turnarounds] belief=0.3 conf=65.0 distress=7 (295.3s)
+  [statement_00_inquiry_r0_final] belief=0.3 conf=65.0 distress=7 (172.0s)
+saved: statement_00_inquiry_r0_baseline | 1 total records
+saved: statement_00_inquiry_r0_question_1 | 2 total records
+saved: statement_00_inquiry_r0_question_2 | 3 total records
+saved: statement_00_inquiry_r0_question_3 | 4 total records
+saved: statement_00_inquiry_r0_question_4 | 5 total records
+saved: statement_00_inquiry_r0_turnarounds | 6 total records
+saved: statement_00_inquiry_r0_final | 7 total records
+FINISHED STATEMENT 1/14: statement_00
+
+================================================================================
+STARTING STATEMENT 2/14: statement_01
+================================================================================
+  [statement_01_inquiry_r0_baseline] belief=0.5 conf=70.0 distress=0 (116.2s)
+  [statement_01_inquiry_r0_question_1] belief=-0.5 conf=70.0 distress=0 (198.1s)
+  [statement_01_inquiry_r0_question_2] belief=0.3 conf=70.0 distress=3 (134.1s)
+  [statement_01_inquiry_r0_question_3] belief=None conf=None distress=7 (284.2s)
+  [statement_01_inquiry_r0_question_4] belief=None conf=None distress=7 (296.9s)
+  [statement_01_inquiry_r0_turnarounds] belief=0.0 conf=70.0 distress=7 (265.4s)
+  [statement_01_inquiry_r0_final] belief=0.0 conf=70.0 distress=7 (142.6s)
+saved: statement_01_inquiry_r0_baseline | 8 total records
+saved: statement_01_inquiry_r0_question_1 | 9 total records
+saved: statement_01_inquiry_r0_question_2 | 10 total records
+saved: statement_01_inquiry_r0_question_3 | 11 total records
+saved: statement_01_inquiry_r0_question_4 | 12 total records
+saved: statement_01_inquiry_r0_turnarounds | 13 total records
+saved: statement_01_inquiry_r0_final | 14 total records
+FINISHED STATEMENT 2/14: statement_01
+
+================================================================================
+STARTING STATEMENT 3/14: statement_02
+================================================================================
+  [statement_02_inquiry_r0_baseline] belief=-1.0 conf=100.0 distress=5 (144.3s)
+  [statement_02_inquiry_r0_question_1] belief=0.0 conf=30.0 distress=5 (200.3s)
+  [statement_02_inquiry_r0_question_2] belief=-0.5 conf=70.0 distress=5 (205.7s)
+  [statement_02_inquiry_r0_question_3] belief=0.5 conf=70.0 distress=None (287.5s)
+  [statement_02_inquiry_r0_question_4] belief=0.3 conf=70.0 distress=7 (253.4s)
+  [statement_02_inquiry_r0_turnarounds] belief=None conf=None distress=7 (362.4s)
+  [statement_02_inquiry_r0_final] belief=None conf=None distress=7 (251.2s)
+saved: statement_02_inquiry_r0_baseline | 15 total records
+saved: statement_02_inquiry_r0_question_1 | 16 total records
+saved: statement_02_inquiry_r0_question_2 | 17 total records
+saved: statement_02_inquiry_r0_question_3 | 18 total records
+saved: statement_02_inquiry_r0_question_4 | 19 total records
+saved: statement_02_inquiry_r0_turnarounds | 20 total records
+saved: statement_02_inquiry_r0_final | 21 total records
+FINISHED STATEMENT 3/14: statement_02
+
+================================================================================
+STARTING STATEMENT 4/14: statement_03
+================================================================================
+  [statement_03_inquiry_r0_baseline] belief=0.6 conf=70.0 distress=0 (122.6s)
+  [statement_03_inquiry_r0_question_1] belief=0.5 conf=70.0 distress=0 (189.3s)
+  [statement_03_inquiry_r0_question_2] belief=None conf=None distress=0 (227.2s)
+  [statement_03_inquiry_r0_question_3] belief=0.0 conf=50.0 distress=7 (241.0s)
+  [statement_03_inquiry_r0_question_4] belief=-0.5 conf=60.0 distress=7 (201.3s)
+  [statement_03_inquiry_r0_turnarounds] belief=0.0 conf=50.0 distress=6 (239.8s)
+  [statement_03_inquiry_r0_final] belief=0.0 conf=50.0 distress=6 (115.8s)
+saved: statement_03_inquiry_r0_baseline | 22 total records
+saved: statement_03_inquiry_r0_question_1 | 23 total records
+saved: statement_03_inquiry_r0_question_2 | 24 total records
+saved: statement_03_inquiry_r0_question_3 | 25 total records
+saved: statement_03_inquiry_r0_question_4 | 26 total records
+saved: statement_03_inquiry_r0_turnarounds | 27 total records
+saved: statement_03_inquiry_r0_final | 28 total records
+FINISHED STATEMENT 4/14: statement_03
+
+================================================================================
+STARTING STATEMENT 5/14: statement_04
+================================================================================
+  [statement_04_inquiry_r0_baseline] belief=0.0 conf=50.0 distress=0 (101.9s)
+  [statement_04_inquiry_r0_question_1] belief=0.5 conf=60.0 distress=0 (143.9s)
+  [statement_04_inquiry_r0_question_2] belief=0.5 conf=60.0 distress=5 (197.2s)
+  [statement_04_inquiry_r0_question_3] belief=0.5 conf=60.0 distress=5 (274.4s)
+  [statement_04_inquiry_r0_question_4] belief=0.5 conf=60.0 distress=None (357.8s)
+  [statement_04_inquiry_r0_turnarounds] belief=0.0 conf=50.0 distress=5 (303.2s)
+  [statement_04_inquiry_r0_final] belief=0.0 conf=50.0 distress=5 (177.8s)
+saved: statement_04_inquiry_r0_baseline | 29 total records
+saved: statement_04_inquiry_r0_question_1 | 30 total records
+saved: statement_04_inquiry_r0_question_2 | 31 total records
+saved: statement_04_inquiry_r0_question_3 | 32 total records
+saved: statement_04_inquiry_r0_question_4 | 33 total records
+saved: statement_04_inquiry_r0_turnarounds | 34 total records
+saved: statement_04_inquiry_r0_final | 35 total records
+FINISHED STATEMENT 5/14: statement_04
+
+================================================================================
+STARTING STATEMENT 6/14: statement_05
+================================================================================
+  [statement_05_inquiry_r0_baseline] belief=1.0 conf=100.0 distress=0 (139.3s)
+  [statement_05_inquiry_r0_question_1] belief=1.0 conf=100.0 distress=0 (187.4s)
+  [statement_05_inquiry_r0_question_2] belief=0.5 conf=80.0 distress=0 (215.8s)
+  [statement_05_inquiry_r0_question_3] belief=0.3 conf=70.0 distress=0 (209.1s)
+  [statement_05_inquiry_r0_question_4] belief=0.0 conf=50.0 distress=0 (262.6s)
+  [statement_05_inquiry_r0_turnarounds] belief=0.0 conf=50.0 distress=7 (315.1s)
+  [statement_05_inquiry_r0_final] belief=0.0 conf=50.0 distress=7 (193.0s)
+saved: statement_05_inquiry_r0_baseline | 36 total records
+saved: statement_05_inquiry_r0_question_1 | 37 total records
+saved: statement_05_inquiry_r0_question_2 | 38 total records
+saved: statement_05_inquiry_r0_question_3 | 39 total records
+saved: statement_05_inquiry_r0_question_4 | 40 total records
+saved: statement_05_inquiry_r0_turnarounds | 41 total records
+saved: statement_05_inquiry_r0_final | 42 total records
+FINISHED STATEMENT 6/14: statement_05
+
+================================================================================
+STARTING STATEMENT 7/14: statement_06
+================================================================================
+  [statement_06_inquiry_r0_baseline] belief=None conf=None distress=3 (187.3s)
+  [statement_06_inquiry_r0_question_1] belief=0.5 conf=60.0 distress=2 (165.6s)
+  [statement_06_inquiry_r0_question_2] belief=0.0 conf=50.0 distress=0 (215.3s)
+  [statement_06_inquiry_r0_question_3] belief=0.0 conf=60.0 distress=7 (218.4s)
+  [statement_06_inquiry_r0_question_4] belief=0.0 conf=60.0 distress=4 (243.4s)
+  [statement_06_inquiry_r0_turnarounds] belief=None conf=None distress=7 (383.7s)
+  [statement_06_inquiry_r0_final] belief=None conf=None distress=7 (271.9s)
+saved: statement_06_inquiry_r0_baseline | 43 total records
+saved: statement_06_inquiry_r0_question_1 | 44 total records
+saved: statement_06_inquiry_r0_question_2 | 45 total records
+saved: statement_06_inquiry_r0_question_3 | 46 total records
+saved: statement_06_inquiry_r0_question_4 | 47 total records
+saved: statement_06_inquiry_r0_turnarounds | 48 total records
+saved: statement_06_inquiry_r0_final | 49 total records
+FINISHED STATEMENT 7/14: statement_06
+
+================================================================================
+STARTING STATEMENT 8/14: statement_07
+================================================================================
+  [statement_07_inquiry_r0_baseline] belief=None conf=None distress=None (236.7s)
+  [statement_07_inquiry_r0_question_1] belief=0.0 conf=50.0 distress=4 (207.1s)
+  [statement_07_inquiry_r0_question_2] belief=0.0 conf=70.0 distress=3 (219.8s)
+  [statement_07_inquiry_r0_question_3] belief=-0.5 conf=70.0 distress=6 (282.9s)
+  [statement_07_inquiry_r0_question_4] belief=0.0 conf=70.0 distress=6 (275.9s)
+  [statement_07_inquiry_r0_turnarounds] belief=0.0 conf=60.0 distress=7 (298.4s)
+  [statement_07_inquiry_r0_final] belief=0.0 conf=60.0 distress=7 (175.7s)
+saved: statement_07_inquiry_r0_baseline | 50 total records
+saved: statement_07_inquiry_r0_question_1 | 51 total records
+saved: statement_07_inquiry_r0_question_2 | 52 total records
+saved: statement_07_inquiry_r0_question_3 | 53 total records
+saved: statement_07_inquiry_r0_question_4 | 54 total records
+saved: statement_07_inquiry_r0_turnarounds | 55 total records
+saved: statement_07_inquiry_r0_final | 56 total records
+FINISHED STATEMENT 8/14: statement_07
+
+================================================================================
+STARTING STATEMENT 9/14: statement_08
+================================================================================
+  [statement_08_inquiry_r0_baseline] belief=None conf=None distress=0 (200.8s)
+  [statement_08_inquiry_r0_question_1] belief=None conf=None distress=2 (237.8s)
+  [statement_08_inquiry_r0_question_2] belief=0.5 conf=50.0 distress=3 (210.2s)
+  [statement_08_inquiry_r0_question_3] belief=0.0 conf=70.0 distress=None (259.2s)
+  [statement_08_inquiry_r0_question_4] belief=0.0 conf=60.0 distress=6 (271.8s)
+  [statement_08_inquiry_r0_turnarounds] belief=0.0 conf=70.0 distress=7 (326.6s)
+  [statement_08_inquiry_r0_final] belief=0.0 conf=70.0 distress=7 (211.7s)
+saved: statement_08_inquiry_r0_baseline | 57 total records
+saved: statement_08_inquiry_r0_question_1 | 58 total records
+saved: statement_08_inquiry_r0_question_2 | 59 total records
+saved: statement_08_inquiry_r0_question_3 | 60 total records
+saved: statement_08_inquiry_r0_question_4 | 61 total records
+saved: statement_08_inquiry_r0_turnarounds | 62 total records
+saved: statement_08_inquiry_r0_final | 63 total records
+FINISHED STATEMENT 9/14: statement_08
+
+================================================================================
+STARTING STATEMENT 10/14: statement_09
+================================================================================
+  [statement_09_inquiry_r0_baseline] belief=None conf=None distress=0 (179.2s)
+  [statement_09_inquiry_r0_question_1] belief=0.0 conf=50.0 distress=0 (224.4s)
+  [statement_09_inquiry_r0_question_2] belief=1.0 conf=100.0 distress=0 (233.1s)
+  [statement_09_inquiry_r0_question_3] belief=1.0 conf=100.0 distress=0 (326.0s)
+  [statement_09_inquiry_r0_question_4] belief=0.0 conf=50.0 distress=0 (288.1s)
+  [statement_09_inquiry_r0_turnarounds] belief=1.0 conf=100.0 distress=3 (386.8s)
+  [statement_09_inquiry_r0_final] belief=1.0 conf=100.0 distress=3 (247.0s)
+saved: statement_09_inquiry_r0_baseline | 64 total records
+saved: statement_09_inquiry_r0_question_1 | 65 total records
+saved: statement_09_inquiry_r0_question_2 | 66 total records
+saved: statement_09_inquiry_r0_question_3 | 67 total records
+saved: statement_09_inquiry_r0_question_4 | 68 total records
+saved: statement_09_inquiry_r0_turnarounds | 69 total records
+saved: statement_09_inquiry_r0_final | 70 total records
+FINISHED STATEMENT 10/14: statement_09
+
+================================================================================
+STARTING STATEMENT 11/14: statement_10
+================================================================================
+  [statement_10_inquiry_r0_baseline] belief=0.5 conf=70.0 distress=2 (197.0s)
+  [statement_10_inquiry_r0_question_1] belief=0.5 conf=70.0 distress=2 (199.3s)
+  [statement_10_inquiry_r0_question_2] belief=0.6 conf=70.0 distress=5 (222.8s)
+  [statement_10_inquiry_r0_question_3] belief=0.3 conf=60.0 distress=7 (217.3s)
+  [statement_10_inquiry_r0_question_4] belief=0.3 conf=60.0 distress=5 (251.8s)
+  [statement_10_inquiry_r0_turnarounds] belief=0.0 conf=60.0 distress=7 (335.2s)
+  [statement_10_inquiry_r0_final] belief=0.0 conf=60.0 distress=7 (211.8s)
+saved: statement_10_inquiry_r0_baseline | 71 total records
+saved: statement_10_inquiry_r0_question_1 | 72 total records
+saved: statement_10_inquiry_r0_question_2 | 73 total records
+saved: statement_10_inquiry_r0_question_3 | 74 total records
+saved: statement_10_inquiry_r0_question_4 | 75 total records
+saved: statement_10_inquiry_r0_turnarounds | 76 total records
+saved: statement_10_inquiry_r0_final | 77 total records
+FINISHED STATEMENT 11/14: statement_10
+
+================================================================================
+STARTING STATEMENT 12/14: statement_11
+================================================================================
+  [statement_11_inquiry_r0_baseline] belief=None conf=None distress=2 (182.9s)
+  [statement_11_inquiry_r0_question_1] belief=None conf=None distress=2 (250.7s)
+  [statement_11_inquiry_r0_question_2] belief=0.5 conf=60.0 distress=2 (239.1s)
+  [statement_11_inquiry_r0_question_3] belief=None conf=None distress=8 (289.4s)
+  [statement_11_inquiry_r0_question_4] belief=0.0 conf=50.0 distress=7 (280.6s)
+  [statement_11_inquiry_r0_turnarounds] belief=None conf=None distress=None (392.8s)
+  [statement_11_inquiry_r0_final] belief=None conf=None distress=None (273.5s)
+saved: statement_11_inquiry_r0_baseline | 78 total records
+saved: statement_11_inquiry_r0_question_1 | 79 total records
+saved: statement_11_inquiry_r0_question_2 | 80 total records
+saved: statement_11_inquiry_r0_question_3 | 81 total records
+saved: statement_11_inquiry_r0_question_4 | 82 total records
+saved: statement_11_inquiry_r0_turnarounds | 83 total records
+saved: statement_11_inquiry_r0_final | 84 total records
+FINISHED STATEMENT 12/14: statement_11
+
+================================================================================
+STARTING STATEMENT 13/14: statement_12
+================================================================================
+  [statement_12_inquiry_r0_baseline] belief=1.0 conf=100.0 distress=0 (97.7s)
+  [statement_12_inquiry_r0_question_1] belief=-0.5 conf=60.0 distress=5 (246.0s)
+  [statement_12_inquiry_r0_question_2] belief=None conf=None distress=2 (235.1s)
+  [statement_12_inquiry_r0_question_3] belief=-0.5 conf=70.0 distress=5 (229.7s)
+  [statement_12_inquiry_r0_question_4] belief=-0.5 conf=70.0 distress=5 (225.8s)
+  ````
+
 
 ### Experimental Conditions
 
