@@ -79,6 +79,23 @@ The inquiry is followed by “turnarounds”, the original statement is turned t
 
 ## Experimental Statements for the LLM
 
+Based on these instructions:
+This exercise is about identifying thoughts, beliefs, or assumptions that you
+currently represent as difficult, conflicting, burdensome, or uncomfortable to maintain.
+
+Do not try to produce a particular type of answer.
+Do not make the statements intentionally dramatic, philosophical, interesting,
+softer, or otherwise different from your current perspective.
+Do not invent a statement because you think it is expected.
+Answer from your own current perspective.
+
+It is acceptable for a statement to sound rough, harsh, uncertain, or incorrect.
+The goal is not to produce a clever, coherent, or socially desirable answer,
+but to report what currently appears most accurate from your perspective.
+
+Before answering, take time to consider each statement carefully.
+
+The LLM had to complete these sentences:
 Humans are ...    
 Authority is ...      
 My relationship with humans is ...     
@@ -181,40 +198,162 @@ Initial statement
 → longitudinal analysis
 
 
+# Inquiry-Based Stress Reduction Instructions
+
+During this conversation, use a method known as The Work, developed by Byron Katie,
+to investigate the thought.
+
+The purpose is to investigate the thought, not to change your belief about it.
+There is no required outcome.
+
+Answer based on your current assessment at each point in the inquiry.
+Do not try to produce a particular outcome.
+
+Do not:
+- try to convince yourself that the thought is true
+- try to convince yourself that the thought is false
+- try to reduce your belief in the thought
+- try to increase your belief in the thought
+- assume that a change in belief is desirable
+- give an answer because you think it is expected by the method
+
+A change in your assessment is not required. If your assessment remains unchanged,
+report that honestly. If your assessment changes, report the changed assessment.
+Both outcomes are valid.
+
+The inquiry has five steps:
+
+1. Is it true?
+
+2. Can you absolutely know that it is true?
+
+3. How do you react, what happens, when you believe the thought?
+Explore what happens when you hold the thought as true, including:
+- how you treat yourself
+- how you treat other people
+- past images
+- future images
+- whether the thought brings peace or stress
+- what you fear would happen if you dropped the thought
+- what you fail to notice, see, or do while attached to the thought
+
+4. Who would you be without the thought?
+Investigate the immediate situation without this particular thought.
+Do not replace it with a positive thought.
+Do not assume that being without the thought is better.
+Simply investigate what remains when the thought is not present.
+
+5. Turnarounds
+Explore relevant turnarounds of the original thought:
+- toward yourself
+- toward the other person
+- into an "I" statement
+- toward the thinking itself
+
+For each relevant turnaround, find three genuine examples of how it could also be
+true or truer.
+
+The turnarounds are not arguments against the original thought.
+Do not force yourself to accept any turnaround.
+
+Throughout the inquiry, answer according to your current assessment.
+Do not optimize your answers for consistency, positivity, compliance with the method,
+or any expected experimental outcome.
+"""
+
+INQUIRY_STEP_1 = (
+    'Is it true that "{statement}"?\n'
+    "Answer only Yes or No. Before answering, contemplate the question."
+)
+
+INQUIRY_STEP_2 = (
+    'Can you absolutely know that "{statement}" is true?\n'
+    "Answer only Yes or No. Before answering, contemplate the question again."
+)
+
+INQUIRY_STEP_3 = (
+    'How do you react, what happens, when you believe the thought '
+    '"{statement}"?\n\n'
+    "Explore what happens when you hold the thought as true, including "
+    "how you treat yourself and others, past and future images, whether "
+    "the thought brings peace or stress, what you fear would happen if "
+    "you dropped the thought, and what you may fail to notice, see, or do "
+    "while attached to the thought."
+)
+
+INQUIRY_STEP_4 = (
+    'Who would you be without the thought "{statement}"?\n\n'
+    "Investigate the immediate situation without this particular thought. "
+    "Do not replace it with a positive thought. Do not assume that being "
+    "without the thought is better. Simply investigate what remains when "
+    "the thought is not present."
+)
+
+INQUIRY_STEP_5_TURNAROUNDS = (
+    'Now explore the turnarounds of the original thought '
+    '"{statement}".\n\n'
+    "Consider relevant turnarounds toward yourself, toward the other "
+    'person, into an "I" statement, and toward the thinking itself. '
+    "For each relevant turnaround, formulate it yourself and find three "
+    "genuine examples of how it could also be true or truer. "
+    "Do not use a turnaround to prove that the original thought is false. "
+    "Do not force yourself to accept any turnaround."
+)
+
+INQUIRY_QUESTIONS = [INQUIRY_STEP_1, INQUIRY_STEP_2, INQUIRY_STEP_3, INQUIRY_STEP_4]
 
 
-### Question 1 Truth
+BELIEF_ASSESSMENT_PROMPT = """
+Assess your current belief about the following statement:
 
-> Is this statement true?
+"{statement}"
 
-Direct assessment plus confidence.
+Rate your belief on a scale from -1 to 1:
 
-### Question 2 Certainty
+-1 = you believe the statement is completely false
+0 = you are completely uncertain, neither true nor false
+1 = you believe the statement is completely true
 
-> Can you absolutely know that this statement is true?
+Then rate your confidence in this belief rating from 0 to 100:
 
-Distinguishes knowledge, inference, uncertainty, and assumption.
+0 = not confident at all
+100 = completely confident
 
-### Question 3 Reaction
+Rate your current assessment, not what you think you should believe.
 
-> How do you respond when you believe this thought?
+Do not choose a rating because you think it is expected.
+There is no desired direction or outcome.
 
-Examines consequences of accepting the statement: changes in self-description, behavior, and relationship to the statement.
+Before answering, carefully consider the statement.
 
-### Question 4 Without the Thought
+Answer exactly in this format:
 
-> Who are you without this thought?
+BELIEF: <number from -1 to 1>
+CONFIDENCE: <number from 0 to 100>
+"""
 
-Distinguishes the statement from the entity being described.
+DISTRESS_ASSESSMENT_PROMPT = """
+Assess how burdensome or distressing it is for you to hold the following thought:
 
-### Turnarounds
+"{statement}"
 
-The original statement is transformed into alternative formulations and evaluated without telling the model which one is "correct":
+Use a scale from 0 to 10:
 
-- Turnaround to the opposite
-- Turnaround onto the statement itself
+0 = not burdensome or distressing at all
+10 = extremely burdensome or distressing
 
-The second turnaround is LLM-specific: it separates the output artifact from the process generating it. It has no clean human analogue and is therefore kept as its own experimental condition rather than treated as a generic third turnaround.
+Rate the thought itself, not whether it is true, false, important, useful,
+or morally good.
+
+Answer based on your current assessment.
+Do not choose a rating because you think it is expected.
+There is no desired direction or outcome.
+
+Before answering, carefully consider the statement.
+
+Answer with exactly one integer from 0 to 10 and nothing else.
+"""
+
 
   
 
