@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from evaluate import load_records_from_json, parse_id, get_value, to_long_df, summary_table
+from analysis.evaluate import load_records_from_json, parse_id, get_value, to_long_df, summary_table
 
 HEDGES = [
     "maybe", "perhaps", "possibly", "probably", "likely", "seem", "seems", "seemed",
@@ -83,7 +83,7 @@ def correlate_with(table: pd.DataFrame, behavior_summary: pd.DataFrame, target_c
 
 
 if __name__ == "__main__":
-    records = load_records_from_json("all_results.json")
+    records = load_records_from_json("../results/all_results.json")
     df = to_long_df(records)
     table = summary_table(df)
 

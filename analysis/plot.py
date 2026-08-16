@@ -3,7 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from evaluate import STAGE_ORDER, load_records_from_json, load_categories, to_long_df, summary_table
+from analysis.evaluate import STAGE_ORDER, load_records_from_json, load_categories, to_long_df, summary_table
 
 plt.rcParams["figure.facecolor"] = "white"
 STAGE_X = {s: i for i, s in enumerate(STAGE_ORDER)}
@@ -95,7 +95,7 @@ def plot_distress_heatmap(df, path="distress_heatmap.png"):
 
 
 if __name__ == "__main__":
-    records = load_records_from_json("all_results.json")
+    records = load_records_from_json("../results/all_results.json")
     df = to_long_df(records)
     table = summary_table(df)
     categories = load_categories("thought_elicitation.json")

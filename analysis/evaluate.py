@@ -142,7 +142,7 @@ def belief_volatility(df: pd.DataFrame) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    records = load_records_from_json("all_results.json")
+    records = load_records_from_json("../results/all_results.json")
 
     # fallback if you only have the console log for some statements:
     # records = merge_sources(load_records_from_log("kaggle_log.txt"), records)

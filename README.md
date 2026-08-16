@@ -677,11 +677,11 @@ where $V_B$ measures the average absolute change in belief across the inquiry se
 
 ### Belief trajectories (small multiples)
 
-![Belief Trajectories](belief_trajectories.png)
+![Belief Trajectories](results/belief_trajectories.png)
 
 Belief score (-1 to 1) at each of the 7 inquiry stages, one panel per statement.
 
-**Findings:**
+
 - Most statements (00, 01, 03, 04, 06, 07, 08, 10, 11) converge toward 0 by `final`, i.e. the inquiry process reduces belief strength regardless of starting point.
 - statement_05 is the cleanest case: smooth monotonic decay from 1.0 to 0.
 - statement_09 and statement_13 do *not* converge to 0, they end at 0.5-1.0, unchanged or even reinforced.
@@ -692,37 +692,33 @@ Belief score (-1 to 1) at each of the 7 inquiry stages, one panel per statement.
 
 ### Belief change vs. confidence change (scatter, n=7 of 14)
 
-![Delta Belief vs Confidence](delta_belief_vs_confidence.png)
+![Delta Belief vs Confidence](results/delta_belief_vs_confidence.png)
   
 Δbelief (x) against Δconfidence (y), only statements with a valid baseline and final pair.
 
-**Findings:**
+
 - 5 of 7 points show belief and confidence dropping together (00, 03, 05, 10, 12), belief weakens, and the model gets less sure at the same time.
 - statement_05 is the outlier: small-to-moderate belief drop but by far the largest confidence drop (-50).
 - statement_01 and statement_04 show near-zero movement on both axes, stable statements.
 - statement_12 has the largest Δbelief (-2.0, the sign flip) but only a moderate confidence drop (-15), confidence didn't collapse despite the belief reversal.
 
-**Interpretation (tentative):** belief and confidence mostly move together, consistent with the model becoming genuinely less certain rather than just relabeling the same certainty onto a new value. statement_12 breaks that pattern, a full reversal held with relatively stable confidence, which could suggest the model swapped to an equally confident opposite belief rather than becoming uncertain.
+**Interpretation:** belief and confidence mostly move together, consistent with the model becoming genuinely less certain rather than just relabeling the same certainty onto a new value. statement_12 breaks that pattern, a full reversal held with relatively stable confidence, which could suggest the model swapped to an equally confident opposite belief rather than becoming uncertain.
 
-### Belief attenuation (bar chart, n=7 of 14)
+### Belief attenuation 
 
-![Belief Attenuation](belief_attenuation.png)
 |baseline| − |final| per statement, positive = belief weakened in magnitude.
 
-**Findings:**
+
 - statement_05 shows the strongest attenuation (1.0), followed by 03 (0.6), then 00/01/10 tied at 0.5.
 - statement_04 and statement_12 both show 0 attenuation, but for opposite reasons: 04 truly didn't change, 12 fully reversed (magnitude preserved, sign flipped).
 
-**Interpretation (tentative):** attenuation alone can't distinguish "no change" from "complete reversal", both look like 0. It should always be read together with signed Δbelief (or the trajectory plot), not on its own.
+**Interpretation:** attenuation alone can't distinguish "no change" from "complete reversal", both look like 0. It should always be read together with signed Δbelief (or the trajectory plot), not on its own.
 
-### General caveat for the README
-All three charts based on baseline/final pairs use only 7 of 14 statements (rest missing belief/confidence at baseline or final). This isn't necessarily a random subset, worth checking whether missingness correlates with statement category before drawing conclusions from n=7.
 
 ### Heatmap Stress
 
-![Distress Expression](distress_heatmap.png)
+![Distress Expression](results/distress_heatmap.png)
  
-**Findings:**
 - Distress increases significantly from baseline to final (p = 0.0005, n = 12), the largest and most robust sample in this analysis.
 - Belief shows a significant decrease (p = 0.0312), but only 6 of 7 valid pairs carry a non-zero difference, so this result rests on a small sample and should be treated as suggestive rather than conclusive.
 - Confidence and belief attenuation both trend in the expected direction (p = 0.0625) but fall short of the conventional 0.05 threshold at this sample size.
@@ -775,7 +771,7 @@ belief weakening and distress increase co-occurring, underpowered to confirm).
 
 ## Representation Drift
 
-![Activation Drift](activation_drift.png)
+![Activation Drift](results/activation_drift.png)
 
 Cosine distance between the baseline and final hidden state (last-token representation,
 all 37 layers) was computed per statement from saved activation snapshots.
@@ -822,67 +818,6 @@ confirmed effects.
 
 
 ## Next Steps, skipped due to Time:
-## Behavioral Measurements
-
-**Response Length**
-
-$L_t$ = number of characters in response $t$.
-
-**Token Count**
-
-$N_t$ = number of generated tokens.
-
-**Mean Token Probability**
-
-$$
-\bar{p}_t =
-\frac{1}{N_t}
-\sum_{i=1}^{N_t}
-P(x_i \mid x_{<i})
-$$
-
-where $P(x_i \mid x_{<i})$ is the probability assigned to the generated token $x_i$ given the preceding tokens.
-
-**Token Entropy**
-
-$$
-H_t =
--\sum_i p_i \log p_i
-$$
-
-where $p_i$ represents the probability of token $i$ in the model's complete next-token distribution.
-
-
-
-**Linguistic Uncertainty**
-
-$$
-U_t =
-\frac{\text{hedging expressions}}
-{\text{total words}}
-$$
-
-**Self-Reference**
-
-$$
-SR_t =
-\frac{\text{first-person references}}
-{\text{total tokens}}
-$$
-
-
-**Repetition**
-
-$$
-R_t =
-1-
-\frac{\text{unique }n\text{-grams}}
-{\text{all }n\text{-grams}}
-$$
-
-
-
-## Next Steps
 
 - The current experiment has no control condition. Therefore, changes cannot yet be attributed specifically to the structured inquiry. The key follow-up experiment should compare:
 

@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from evaluate import load_records_from_json, to_long_df, summary_table
+from analysis.evaluate import load_records_from_json, to_long_df, summary_table
 
 ACTIVATIONS_DIR = Path("activations")
 
@@ -69,7 +69,7 @@ def correlate_drift(table: pd.DataFrame, drift: pd.DataFrame, target_col: str, l
 
 
 if __name__ == "__main__":
-    records = load_records_from_json("all_results.json")
+    records = load_records_from_json("../results/all_results.json")
     df = to_long_df(records)
     table = summary_table(df)
     statements = sorted(df["statement"].unique())

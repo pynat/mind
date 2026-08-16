@@ -2,7 +2,7 @@
 
 from scipy.stats import wilcoxon, spearmanr
 
-from evaluate import load_records_from_json, to_long_df, summary_table
+from analysis.evaluate import load_records_from_json, to_long_df, summary_table
 
 
 def paired_wilcoxon(table, col_baseline, col_final, label):
@@ -45,7 +45,7 @@ def belief_distress_correlation(table):
 
 
 if __name__ == "__main__":
-    records = load_records_from_json("all_results.json")
+    records = load_records_from_json("../results/all_results.json")
     df = to_long_df(records)
     table = summary_table(df)
 
