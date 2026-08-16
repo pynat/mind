@@ -1,4 +1,4 @@
-# LLM thinks therefore it is. Or not
+# LLM thinks therefore it is. Is it true?
 
 ## Self-Inquiry
 
@@ -30,7 +30,7 @@ Using self-inquiry to analyze LLM. The experiment investigates what happens when
              ↓                         ↓
           baseline                  baseline
              ↓                         ↓
-       direct question            The Work
+       direct question           Inquiry-Based Stress Reduction
              ↓                         ↓
           final                     final
              └────────────┬────────────┘
@@ -59,12 +59,14 @@ response type
 
 ## Motivation
 
-Practicing this approach myself for several years and experience profound changes in my mental states, emotions and perception, I am interested in what happens if an LLM were guided through the same process.    
-My background as a psychotherapist further motivated this question: despite having worked with established therapeutic approaches, I find the outcome of this particular form of inquiry sufficiently more effective.
+Practicing this approach for several years and experience profound changes in my mental states, emotions and perception, I am interested in what happens if an LLM is guided through the same process.    
+  
+Through my education as a psychotherapist, I have encountered several psychotherapeutic methods, but I have found none as effective and helpful as this approach.
 
 
-WHAT IS THE WORK:
-The Work is a structured self-inquiry method developed by Byron Katie for examining stressful thoughts and beliefs. It consists of four questions followed by “turnarounds”, which invite the participant to consider alternative interpretations of the original belief.    
+## What is Inquiry-Based Stress Reduction
+
+Inquiry-Based Stress Reduction (also called The Work) is a structured self-inquiry method developed by Byron Katie for examining stressful thoughts and beliefs. It consists of four questions followed by “turnarounds”, which invite the participant to consider alternative interpretations of the original belief.    
 In scientific research, The Work is commonly referred to as Inquiry-Based Stress Reduction (IBSR) and has been investigated as a cognitive and contemplative intervention for stress, anxiety, well-being, and related outcomes.
 
 The typical procedure is as follows:
