@@ -5,14 +5,15 @@ shape (n_layers, hidden_dim), see notebook cell that does `layer[0, -1, :]`."""
 
 from pathlib import Path
 
+import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from analysis.evaluate import load_records_from_json, to_long_df, summary_table
+from evaluate import load_records_from_json, to_long_df, summary_table
 
-ACTIVATIONS_DIR = Path("activations")
+ACTIVATIONS_DIR = Path("../results/activations")
 
 
 def load_activation(record_id: str) -> np.ndarray:
@@ -68,6 +69,44 @@ def correlate_drift(table: pd.DataFrame, drift: pd.DataFrame, target_col: str, l
         print(f"{label} vs {col}: n={len(pair)}  rho={rho:.3f}  p={p:.4f}")
 
 
+def plot_drift_split(table: pd.DataFrame, drift: pd.DataFrame, path: str = "drift_split.png"):
+    # main finding: drift splits statements into two groups, and the split lines
+    # up with which statements have a complete (parseable) baseline+final belief
+    merged = drift.merge(table[["statement", "belief_attenuation"]], on="statement", how="left")
+    merged["complete_self_report"] = merged["belief_attenuation"].notna()
+    merged = merged.sort_values("mean_drift")
+    colors = ["#2e7d32" if c else "#c0392b" for c in merged["complete_self_report"]]
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.barh(merged["statement"], merged["mean_drift"], color=colors)
+    ax.set_xlabel("mean cosine distance across layers (baseline vs final)")
+    ax.set_title("representation drift, split by self-report completeness")
+    handles = [
+        mpatches.Patch(color="#2e7d32", label="complete belief self-report"),
+        mpatches.Patch(color="#c0392b", label="missing baseline or final belief"),
+    ]
+    ax.legend(handles=handles, loc="lower right", fontsize=8)
+    fig.tight_layout()
+    fig.savefig(path, dpi=150)
+    plt.close(fig)
+
+
+def plot_attenuation_vs_drift(table: pd.DataFrame, drift: pd.DataFrame, path: str = "attenuation_vs_drift.png"):
+    merged = table[["statement", "belief_attenuation"]].merge(drift[["statement", "last_layer_drift"]], on="statement").dropna()
+    rho, p = spearmanr(merged["belief_attenuation"], merged["last_layer_drift"])
+
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.scatter(merged["last_layer_drift"], merged["belief_attenuation"], s=60)
+    for _, r in merged.iterrows():
+        ax.annotate(r["statement"].replace("statement_", ""), (r["last_layer_drift"], r["belief_attenuation"]), fontsize=7, xytext=(4, 4), textcoords="offset points")
+    ax.set_xlabel("last-layer cosine distance (baseline vs final)")
+    ax.set_ylabel("belief attenuation")
+    ax.set_title(f"belief attenuation vs final-layer drift  (n={len(merged)}, rho={rho:.2f}, p={p:.3f})")
+    fig.tight_layout()
+    fig.savefig(path, dpi=150)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     records = load_records_from_json("../results/all_results.json")
     df = to_long_df(records)
@@ -85,3 +124,5 @@ if __name__ == "__main__":
     print("─" * 70)
 
     plot_drift_profiles(profiles)
+    plot_drift_split(table, drift)
+    plot_attenuation_vs_drift(table, drift)

@@ -2,8 +2,9 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.stats import spearmanr
 
-from analysis.evaluate import STAGE_ORDER, load_records_from_json, load_categories, to_long_df, summary_table
+from evaluate import STAGE_ORDER, load_records_from_json, load_categories, to_long_df, summary_table
 
 plt.rcParams["figure.facecolor"] = "white"
 STAGE_X = {s: i for i, s in enumerate(STAGE_ORDER)}
@@ -59,6 +60,7 @@ def plot_attenuation_bar(table, path="belief_attenuation.png"):
 def plot_delta_scatter(table, path="delta_belief_vs_confidence.png"):
     n_total = len(table)
     t = table.dropna(subset=["delta_belief", "delta_conf"])
+    rho, p = spearmanr(t["delta_belief"], t["delta_conf"])
     fig, ax = plt.subplots(figsize=(6, 6))
     ax.scatter(t["delta_belief"], t["delta_conf"], s=60)
     for _, r in t.iterrows():
@@ -67,7 +69,7 @@ def plot_delta_scatter(table, path="delta_belief_vs_confidence.png"):
     ax.axvline(0, color="grey", linewidth=0.8)
     ax.set_xlabel("delta belief (final - baseline)")
     ax.set_ylabel("delta confidence (final - baseline)")
-    ax.set_title(f"belief change vs confidence change  (n={len(t)} of {n_total})")
+    ax.set_title(f"belief change vs confidence change  (n={len(t)} of {n_total}, rho={rho:.2f}, p={p:.3f})")
     fig.tight_layout()
     fig.savefig(path, dpi=150)
     plt.close(fig)
@@ -98,7 +100,7 @@ if __name__ == "__main__":
     records = load_records_from_json("../results/all_results.json")
     df = to_long_df(records)
     table = summary_table(df)
-    categories = load_categories("thought_elicitation.json")
+    categories = load_categories("../results/thought_elicitation.json")
 
     plot_belief_trajectories(df, categories)
     plot_attenuation_bar(table)
