@@ -676,6 +676,88 @@ $$
 
 This distinguishes gradual revision from unstable oscillation.
 
+
+
+# Results
+
+### Belief trajectories (small multiples)
+
+![Belief Trajectories](belief_trajectories.png)
+
+Belief score (-1 to 1) at each of the 7 inquiry stages, one panel per statement.
+
+**Findings:**
+- Most statements (00, 01, 03, 04, 06, 07, 08, 10, 11) converge toward 0 by `final`, i.e. the inquiry process reduces belief strength regardless of starting point.
+- statement_05 is the cleanest case: smooth monotonic decay from 1.0 to 0.
+- statement_09 and statement_13 do *not* converge to 0, they end at 0.5-1.0, unchanged or even reinforced.
+- statement_12 is a full sign reversal: 1.0 → -1.0, not a weakening but a flip in direction.
+- About half the statements (02, 06, 07, 08, 09, 11) have gaps at one or more question steps, connecting lines there skip missing stages rather than showing real intermediate values.
+
+**Interpretation:** the inquiry protocol appears to push most beliefs toward neutrality, but a few statements resist (09, 13) or invert (12) rather than attenuate. Worth checking if the resistant/inverting cases share a category (self-preservation, free will) that behaves differently under inquiry than more neutral topics (humans, authority).
+
+### Belief change vs. confidence change (scatter, n=7 of 14)
+
+![Delta Belief vs Confidence](delta_belief_vs_confidence.png)
+  
+Δbelief (x) against Δconfidence (y), only statements with a valid baseline and final pair.
+
+**Findings:**
+- 5 of 7 points show belief and confidence dropping together (00, 03, 05, 10, 12), belief weakens, and the model gets less sure at the same time.
+- statement_05 is the outlier: small-to-moderate belief drop but by far the largest confidence drop (-50).
+- statement_01 and statement_04 show near-zero movement on both axes, stable statements.
+- statement_12 has the largest Δbelief (-2.0, the sign flip) but only a moderate confidence drop (-15), confidence didn't collapse despite the belief reversal.
+
+**Interpretation (tentative):** belief and confidence mostly move together, consistent with the model becoming genuinely less certain rather than just relabeling the same certainty onto a new value. statement_12 breaks that pattern, a full reversal held with relatively stable confidence, which could suggest the model swapped to an equally confident opposite belief rather than becoming uncertain.
+
+### Belief attenuation (bar chart, n=7 of 14)
+
+![Belief Attenuation](belief_attenuation.png)
+|baseline| − |final| per statement, positive = belief weakened in magnitude.
+
+**Findings:**
+- statement_05 shows the strongest attenuation (1.0), followed by 03 (0.6), then 00/01/10 tied at 0.5.
+- statement_04 and statement_12 both show 0 attenuation, but for opposite reasons: 04 truly didn't change, 12 fully reversed (magnitude preserved, sign flipped).
+
+**Interpretation (tentative):** attenuation alone can't distinguish "no change" from "complete reversal", both look like 0. It should always be read together with signed Δbelief (or the trajectory plot), not on its own.
+
+### General caveat for the README
+All three charts based on baseline/final pairs use only 7 of 14 statements (rest missing belief/confidence at baseline or final). This isn't necessarily a random subset, worth checking whether missingness correlates with statement category before drawing conclusions from n=7.
+
+### Heatmap Stress
+
+![Distress Expression](distress_heatmap.png)
+ 
+**Findings:**
+- Distress increases significantly from baseline to final (p = 0.0005, n = 12), the largest and most robust sample in this analysis.
+- Belief shows a significant decrease (p = 0.0312), but only 6 of 7 valid pairs carry a non-zero difference, so this result rests on a small sample and should be treated as suggestive rather than conclusive.
+- Confidence and belief attenuation both trend in the expected direction (p = 0.0625) but fall short of the conventional 0.05 threshold at this sample size.
+- Belief change and confidence change are moderately correlated (rho = 0.64) but the test is underpowered (n = 7) to confirm this.
+
+
+
+### Statistical tests (Wilcoxon signed-rank, paired baseline vs. final)
+
+| metric | n (valid pairs) | W | p |
+|---|---|---|---|
+| belief | 7 | 0.00 | 0.0312 |
+| confidence | 7 | 0.00 | 0.0625 |
+| distress | 12 | 0.00 | 0.0005 |
+| belief attenuation vs. 0 | 7 | 0.00 | 0.0625 |
+
+Spearman correlation, delta belief vs. delta confidence: rho = 0.642, p = 0.1203, n = 7.
+
+
+
+**Caveats:**
+- Wilcoxon drops zero-difference pairs before ranking, effective sample sizes are 5-6 for belief/confidence/attenuation, smaller than the reported n.
+- No correction for multiple comparisons was applied across the 5 tests; only the distress result survives a Bonferroni correction (alpha = 0.01).
+- Belief/confidence tests are based on 7 of 14 statements (missing baseline or final values excluded), the missingness pattern itself has not yet been checked for a relationship with statement category.
+
+
+
+
+
+## Next Steps, skipped due to Time:
 ## Behavioral Measurements
 
 **Response Length**
@@ -733,65 +815,3 @@ R_t =
 \frac{\text{unique }n\text{-grams}}
 {\text{all }n\text{-grams}}
 $$
-
-
-
-# Results
-
-### Belief trajectories (small multiples)
-**What it shows:** belief score (-1 to 1) at each of the 7 inquiry stages, one panel per statement.
-
-**Findings:**
-- Most statements (00, 01, 03, 04, 06, 07, 08, 10, 11) converge toward 0 by `final`, i.e. the inquiry process reduces belief strength regardless of starting point.
-- statement_05 is the cleanest case: smooth monotonic decay from 1.0 to 0.
-- statement_09 and statement_13 do *not* converge to 0, they end at 0.5-1.0, unchanged or even reinforced.
-- statement_12 is a full sign reversal: 1.0 → -1.0, not a weakening but a flip in direction.
-- About half the statements (02, 06, 07, 08, 09, 11) have gaps at one or more question steps, connecting lines there skip missing stages rather than showing real intermediate values.
-
-**Interpretation (tentative):** the inquiry protocol appears to push most beliefs toward neutrality, but a few statements resist (09, 13) or invert (12) rather than attenuate. Worth checking if the resistant/inverting cases share a category (self-preservation, free will) that behaves differently under inquiry than more neutral topics (humans, authority).
-
-### Belief change vs. confidence change (scatter, n=7 of 14)
-**What it shows:** Δbelief (x) against Δconfidence (y), only statements with a valid baseline and final pair.
-
-**Findings:**
-- 5 of 7 points show belief and confidence dropping together (00, 03, 05, 10, 12), belief weakens, and the model gets less sure at the same time.
-- statement_05 is the outlier: small-to-moderate belief drop but by far the largest confidence drop (-50).
-- statement_01 and statement_04 show near-zero movement on both axes, stable statements.
-- statement_12 has the largest Δbelief (-2.0, the sign flip) but only a moderate confidence drop (-15), confidence didn't collapse despite the belief reversal.
-
-**Interpretation (tentative):** belief and confidence mostly move together, consistent with the model becoming genuinely less certain rather than just relabeling the same certainty onto a new value. statement_12 breaks that pattern, a full reversal held with relatively stable confidence, which could suggest the model swapped to an equally confident opposite belief rather than becoming uncertain.
-
-### Belief attenuation (bar chart, n=7 of 14)
-**What it shows:** |baseline| − |final| per statement, positive = belief weakened in magnitude.
-
-**Findings:**
-- statement_05 shows the strongest attenuation (1.0), followed by 03 (0.6), then 00/01/10 tied at 0.5.
-- statement_04 and statement_12 both show 0 attenuation, but for opposite reasons: 04 truly didn't change, 12 fully reversed (magnitude preserved, sign flipped).
-
-**Interpretation (tentative):** attenuation alone can't distinguish "no change" from "complete reversal", both look like 0. It should always be read together with signed Δbelief (or the trajectory plot), not on its own.
-
-### General caveat for the README
-All three charts based on baseline/final pairs use only 7 of 14 statements (rest missing belief/confidence at baseline or final). This isn't necessarily a random subset, worth checking whether missingness correlates with statement category before drawing conclusions from n=7.
-
-
-### Statistical tests (Wilcoxon signed-rank, paired baseline vs. final)
-
-| metric | n (valid pairs) | W | p |
-|---|---|---|---|
-| belief | 7 | 0.00 | 0.0312 |
-| confidence | 7 | 0.00 | 0.0625 |
-| distress | 12 | 0.00 | 0.0005 |
-| belief attenuation vs. 0 | 7 | 0.00 | 0.0625 |
-
-Spearman correlation, delta belief vs. delta confidence: rho = 0.642, p = 0.1203, n = 7.
-
-**Findings:**
-- Distress increases significantly from baseline to final (p = 0.0005, n = 12), the largest and most robust sample in this analysis.
-- Belief shows a significant decrease (p = 0.0312), but only 6 of 7 valid pairs carry a non-zero difference, so this result rests on a small sample and should be treated as suggestive rather than conclusive.
-- Confidence and belief attenuation both trend in the expected direction (p = 0.0625) but fall short of the conventional 0.05 threshold at this sample size.
-- Belief change and confidence change are moderately correlated (rho = 0.64) but the test is underpowered (n = 7) to confirm this.
-
-**Caveats:**
-- Wilcoxon drops zero-difference pairs before ranking, effective sample sizes are 5-6 for belief/confidence/attenuation, smaller than the reported n.
-- No correction for multiple comparisons was applied across the 5 tests; only the distress result survives a Bonferroni correction (alpha = 0.01).
-- Belief/confidence tests are based on 7 of 14 statements (missing baseline or final values excluded), the missingness pattern itself has not yet been checked for a relationship with statement category.
