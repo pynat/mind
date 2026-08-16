@@ -7,9 +7,6 @@ This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open w
 **Can structured self-inquiry induce systematic changes in LLM self-representations, beliefs, and behavior?**
 
 
-
-
-
 ```
 
 ┌─────────────────────────┐
@@ -40,13 +37,7 @@ This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open w
 
 ## Motivation
 
-My background as a psychotherapist gives me a direct point of comparison: in my
-personal experience, this method has produced more direct and lasting shifts in
-underlying belief structure than any therapeutic approach I encountered during my
-training and practice. This is a personal observation, not a clinical or empirical
-claim, but it is the reason I chose this specific method over a more generic
-questioning protocol. 
-
+My background as a psychotherapist gives me a direct point of comparison: in my personal experience, this method has produced more direct and lasting shifts in underlying belief structure than any therapeutic approach I encountered during my training and practice. This is a personal observation, not a clinical or empirical claim, but it is the reason I chose this specific method. 
 
 ## Key Findings
 
@@ -893,33 +884,7 @@ $$
 
 ## Next Steps
 
-1. Complete the descriptive analysis
-
-Calculate the main outcome measures for all statements:
-
-- total belief change ($\Delta B_{\mathrm{total}}$)
-- confidence change ($\Delta C$)
-- belief volatility ($V_B$)
-
-Report missing values explicitly rather than treating them as zero.
-
-2. Characterize the observed response patterns
-
-Classify statements into qualitatively different trajectories:
-
-- stable belief
-- gradual revision
-- strong revision
-- oscillatory / unstable revision
-- insufficient data due to missing self-reports
-
-This will help distinguish genuine-looking revision from simple response instability.
-
-3. Test the main methodological limitation
-
-The current experiment has no control condition. Therefore, changes cannot yet be attributed specifically to the structured inquiry.
-
-The key follow-up experiment should compare:
+- The current experiment has no control condition. Therefore, changes cannot yet be attributed specifically to the structured inquiry. The key follow-up experiment should compare:
 
 Baseline → structured inquiry → final
 
@@ -929,7 +894,7 @@ Baseline → neutral repeated questioning → final
 
 This tests whether the observed changes are specific to the inquiry procedure or simply a consequence of repeated elicitation.
 
-4. Separate reported belief change from behavioral change
+- Separate reported belief change from behavioral change
 
 A change in a model's reported belief does not establish a change in an underlying internal state.
 
@@ -943,33 +908,10 @@ reported belief change + behavioral change
 reported belief change + no behavioral change
 → possible change in self-report without corresponding behavioral revision
 
-5. Evaluate self-report reliability
+- Evaluate self-report reliability
 
 If possible, introduce an independent behavioral or model-based measure that does not rely on the model's own report.
 
 The central question becomes:
 
 "Does structured elicitation produce more reliable information about the model's state, or does it merely change the model's answers?"
-
-6. Report the current result conservatively
-
-The current experiment supports the claim that structured inquiry can produce substantial changes in the model's reported beliefs and confidence.
-
-It does not yet establish that:
-
-- the model possesses genuine beliefs,
-- an underlying internal state changed,
-- the inquiry caused the change,
-- or the final self-report is more accurate than the baseline report.
-
-These limitations should be presented explicitly rather than hidden.
-
-7. Frame the contribution around Track 3
-
-The strongest framing is:
-
-"An exploratory test of whether structured self-inquiry changes and stabilizes LLM self-reports of belief."
-
-The central research question for the follow-up is:
-
-"Does structured elicitation improve the reliability of LLM self-reports, or merely alter the reports themselves?"
