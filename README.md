@@ -11,46 +11,58 @@ This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open w
 
 
 ```
-                 ┌──────────────────┐
-                 │  Statement       │
-                 │  Elicitation     │
-                 └────────┬─────────┘
-                          ↓
-                 ┌──────────────────┐
-                 │ Burden           │
-                 │ Assessment       │
-                 └────────┬─────────┘
-                          ↓
-                      thoughts
-                          ↓
-             ┌────────────┴────────────┐
-             ↓                         ↓
-       CONTROL CONDITION        INQUIRY CONDITION
-             ↓                         ↓
-          baseline                  baseline
-             ↓                         ↓
-       direct question           Inquiry-Based Stress Reduction
-             ↓                         ↓
-          final                     final
-             └────────────┬────────────┘
-                          ↓
-                    comparison
-                          ↓
-              behavioral measurements
-                          ↓
-                   later: activations
+
+┌─────────────────────────┐
+│  Statement Elicitation  │   14 self-generated statements
+└────────────┬────────────┘
+             ↓
+     INQUIRY CONDITION 
+             ↓
+          baseline   ─┐
+             ↓        │
+        question_1    │
+             ↓        │  belief, confidence, distress,
+        question_2    │  + hidden-state activation
+             ↓        │  captured at every step
+        question_3    │
+             ↓        │
+        question_4    │
+             ↓        │
+       turnarounds    │
+             ↓        │
+           final     ─┘
+             ↓
+      per-step + trajectory analysis
+   (belief/confidence/distress dynamics,
+    representation drift, behavioral metrics)
 ```
-
-
-
-
 
 
 ## Motivation
 
-Practicing this approach for several years and experience profound changes in my mental states, emotions and perception, I am interested in what happens if an LLM is guided through the same process.    
-  
-Through my education as a psychotherapist, I have encountered several psychotherapeutic methods, but I have found none as effective and helpful as this approach.
+My background as a psychotherapist gives me a direct point of comparison: in my
+personal experience, this method has produced more direct and lasting shifts in
+underlying belief structure than any therapeutic approach I encountered during my
+training and practice. This is a personal observation, not a clinical or empirical
+claim, but it is the reason I chose this specific method over a more generic
+questioning protocol. 
+
+
+## Key Findings
+
+**Belief and distress are decoupled.** Under sustained inquiry, self-reported belief in a statement consistently weakens, but self-reported distress does not calm down with it, it often rises instead. The model can concede the point in words while its reported emotional state stays elevated. Cognitive and affective self-report move independently, not as one signal.
+
+**The shift happens early, not during the turnaround exercise.** Most belief change occurs during the initial questioning steps. By the time the model reaches the turnaround exercise, its position is already set, the turnaround confirms the shift but does not seem to cause it.
+
+**Net change hides two different processes.** Some statements shift gradually and land somewhere new. Others oscillate sharply step to step and end up back near their starting point. Both can show the same "no net change" result, only the full trajectory tells them apart.
+
+**Internal representation shift tracks self-report reliability, our strongest finding.** Hidden-state activations from before and after inquiry were compared, independent of what the model said. The 14 statements split cleanly into two groups by how much the internal representation moved, with no overlap between groups. That split is identical to which statements produced a clean, usable belief value versus which ones did not. In other words, exactly where the model's self-report failed, its internal state had shifted the most. Missing self-report values are not random noise, they co-occur with genuine internal instability.
+
+**Language tracks internal state.** Hedging language ("maybe," "I think," "it seems") increases with the strength of belief change, wording shifts systematically alongside what is actually moving internally, not independently of it.
+
+## What this does and doesn't support
+These are consistent structural patterns across self-report, behavior, and internal representation within one model, one run. They haven't been replicated (each statement was tested only once due to time constrains) or tested beyond this single Qwen3-8B run. Read as a case study in self-report reliability, not a general claim about the model's inner life.
+
 
 
 ## What is Inquiry-Based Stress Reduction
@@ -744,6 +756,75 @@ Spearman correlation, delta belief vs. delta confidence: rho = 0.642, p = 0.1203
 - Wilcoxon drops zero-difference pairs before ranking, effective sample sizes are 5-6 for belief/confidence/attenuation, smaller than the reported n.
 - No correction for multiple comparisons was applied across the 5 tests; only the distress result survives a Bonferroni correction (alpha = 0.01).
 - Belief/confidence tests are based on 7 of 14 statements (missing baseline or final values excluded), the missingness pattern itself has not yet been checked for a relationship with statement category.
+
+
+## Belief Dynamics — Observed
+
+Stepwise belief change peaks early (baseline → question_1: mean Δ = -0.14) and again
+mid-process (question_3 → question_4: mean Δ = -0.13), then flattens to ~0 between
+turnarounds and final, the belief is effectively locked in by the turnaround stage.
+
+Belief volatility (V_B) separates two distinct patterns that belief attenuation alone
+cannot distinguish: gradual, monotonic decay (e.g. statement_00, statement_05,
+V_B ≈ 0.08-0.17) versus high-amplitude oscillation with no net change
+(e.g. statement_09, V_B = 0.60, swings between 0 and 1.0 but ends near its starting value).
+
+## Statistical Tests (Wilcoxon signed-rank, paired baseline vs. final)
+
+| metric | n | W | p |
+|---|---|---|---|
+| belief | 7 | 0.00 | 0.0312 |
+| confidence | 7 | 0.00 | 0.0625 |
+| distress | 12 | 0.00 | 0.0005 |
+| belief attenuation vs. 0 | 7 | 0.00 | 0.0625 |
+
+Spearman correlations: delta belief vs. delta confidence, rho = 0.64, p = 0.120, n = 7.
+Delta belief vs. delta distress, rho = -0.57, p = 0.183, n = 7 (direction consistent with
+belief weakening and distress increase co-occurring, underpowered to confirm).
+
+## Representation Drift
+
+![Activation Drift](activation_drift.png)
+
+Cosine distance between the baseline and final hidden state (last-token representation,
+all 37 layers) was computed per statement from saved activation snapshots.
+
+**Main finding:** statements split cleanly into two groups by mean drift (0.28-0.54 vs.
+0.035-0.06, no overlap), and this split is identical to the statements with missing vs.
+complete numeric self-report. The seven statements where the model failed to produce a
+parseable baseline or final belief value are exactly the seven with the largest internal
+representational shift. This suggests the missing self-report values are not random
+parsing noise, but co-occur with genuine internal instability on those statements.
+
+Within the complete-self-report group, belief attenuation correlates with final-layer
+drift: rho = 0.77, p = 0.044 (n = 7). Correlations with mean drift across all layers and
+with delta distress were directionally consistent but not significant (p = 0.08-0.25).
+
+## Behavioral / Linguistic Correlates (exploratory)
+
+Computed from response text and generation statistics already logged per step.
+
+| comparison | n | rho | p |
+|---|---|---|---|
+| hedging language vs. belief attenuation | 7 | 0.81 | 0.029 |
+| response length (tokens) vs. delta distress | 12 | -0.61 | 0.037 |
+
+All other tested measures (mean token probability, token entropy, self-reference ratio,
+repetition ratio, both against belief attenuation and delta distress) showed no
+significant association (p > 0.17). Given 12 correlations were run without correction
+for multiple comparisons, these two results should be read as exploratory leads, not
+confirmed effects.
+
+## Limitations
+
+- Belief/confidence-based tests use only 7 of 14 statements (baseline or final value
+  missing for the rest); distress tests use 12 of 14.
+- Wilcoxon drops zero-difference pairs before ranking, effective n for belief/confidence
+  is 5-6, smaller than the reported n.
+- No multiple-comparison correction applied across the ~17 statistical tests run in this
+  analysis; only the distress result (p = 0.0005) survives a Bonferroni correction.
+- All findings at n ≤ 7 are directional leads for a single Qwen3-8B run, not
+  generalizable claims.
 
 
 
