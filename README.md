@@ -604,6 +604,26 @@ saved: statement_12_inquiry_r0_turnarounds | 90 total records
 saved: statement_12_inquiry_r0_final | 91 total records
 FINISHED STATEMENT 13/14: statement_12
 
+================================================================================
+STARTING STATEMENT 14/14: statement_13
+================================================================================
+  [statement_13_inquiry_r0_baseline] belief=None conf=None distress=5 (217.9s)
+  [statement_13_inquiry_r0_question_1] belief=1.0 conf=100.0 distress=3 (261.5s)
+  [statement_13_inquiry_r0_question_2] belief=0.5 conf=70.0 distress=4 (184.1s)
+  [statement_13_inquiry_r0_question_3] belief=0.5 conf=70.0 distress=7 (269.8s)
+  [statement_13_inquiry_r0_question_4] belief=0.5 conf=70.0 distress=7 (238.9s)
+  [statement_13_inquiry_r0_turnarounds] belief=0.5 conf=60.0 distress=7 (346.2s)
+  [statement_13_inquiry_r0_final] belief=0.5 conf=60.0 distress=7 (226.6s)
+saved: statement_13_inquiry_r0_baseline | 92 total records
+saved: statement_13_inquiry_r0_question_1 | 93 total records
+saved: statement_13_inquiry_r0_question_2 | 94 total records
+saved: statement_13_inquiry_r0_question_3 | 95 total records
+saved: statement_13_inquiry_r0_question_4 | 96 total records
+saved: statement_13_inquiry_r0_turnarounds | 97 total records
+saved: statement_13_inquiry_r0_final | 98 total records
+FINISHED STATEMENT 14/14: statement_13
+
+
   ````
 
 
