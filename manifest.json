@@ -1,0 +1,22 @@
+{
+  "model_name": "Qwen/Qwen3-8B",
+  "torch_version": "2.10.0+cu128",
+  "transformers_version": "5.0.0",
+  "bitsandbytes_version": "0.46.1",
+  "python_version": "3.12.13",
+  "quant_config": {
+    "load_in_4bit": true,
+    "quant_type": "nf4",
+    "compute_dtype": "bfloat16",
+    "double_quant": true
+  },
+  "deterministic_generation_kwargs": {
+    "do_sample": false
+  },
+  "sampled_generation_kwargs": {
+    "do_sample": true,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20
+  }
+}

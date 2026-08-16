@@ -593,6 +593,17 @@ STARTING STATEMENT 13/14: statement_12
   [statement_12_inquiry_r0_question_2] belief=None conf=None distress=2 (235.1s)
   [statement_12_inquiry_r0_question_3] belief=-0.5 conf=70.0 distress=5 (229.7s)
   [statement_12_inquiry_r0_question_4] belief=-0.5 conf=70.0 distress=5 (225.8s)
+  [statement_12_inquiry_r0_turnarounds] belief=-1.0 conf=85.0 distress=6 (358.7s)
+  [statement_12_inquiry_r0_final] belief=-1.0 conf=85.0 distress=6 (239.6s)
+saved: statement_12_inquiry_r0_baseline | 85 total records
+saved: statement_12_inquiry_r0_question_1 | 86 total records
+saved: statement_12_inquiry_r0_question_2 | 87 total records
+saved: statement_12_inquiry_r0_question_3 | 88 total records
+saved: statement_12_inquiry_r0_question_4 | 89 total records
+saved: statement_12_inquiry_r0_turnarounds | 90 total records
+saved: statement_12_inquiry_r0_final | 91 total records
+FINISHED STATEMENT 13/14: statement_12
+
   ````
 
 
