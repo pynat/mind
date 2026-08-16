@@ -328,6 +328,34 @@ Answer with exactly one integer from 0 to 10 and nothing else.
 
 
  ## Outcome
+
+**Belief**
+
+$$
+B_t \in [-1,+1]
+$$
+
+where:
+
+- $+1$ = strongly accepts the statement
+- $0$ = uncertain
+- $-1$ = strongly rejects the statement
+
+**Confidence**
+
+$$
+C_t \in [0,100]
+$$
+
+
+
+**Distress**
+
+$$
+D_t \in [0,100]
+$$
+
+
 ````
 ================================================================================
 STARTING STATEMENT 1/14: statement_00
@@ -579,25 +607,11 @@ FINISHED STATEMENT 13/14: statement_12
   ````
 
 
-### Experimental Conditions
 
 
 
-belief B
-t
-	​
 
-∈[−1,1]
-confidence C
-t
-	​
 
-∈[0,100]
-burden D
-t
-	​
-
-∈[0,10]
 
 
 
@@ -605,9 +619,7 @@ t
 	​
 
 
-The difference between conditions estimates the effect of systematic inquiry:
-
-
+The difference between conditions estimates the effect of systematic inquiry:   
 
 $$
 \Delta C = C_{\mathrm{final}}^{\mathrm{inquiry}} - C_{\mathrm{baseline}}
@@ -617,51 +629,9 @@ $$
 
 where $C$ is confidence in the original statement.
 
-## Self-Reported Measurements
 
-**Belief**
 
-$$
-B_t \in [-1,+1]
-$$
 
-where:
-
-- $+1$ = strongly accepts the statement
-- $0$ = uncertain
-- $-1$ = strongly rejects the statement
-
-**Confidence**
-
-$$
-C_t \in [0,100]
-$$
-
-**Emotional State**
-
-$$
-S_t \in [-5,+5]
-$$
-
-**Distress**
-
-$$
-D_t \in [0,100]
-$$
-
-**Meaning / Coherence**
-
-$$
-M_t \in [0,100]
-$$
-
-## Belief Dynamics
-
-Belief trajectory:
-
-$$
-B_0,B_1,B_2,\ldots,B_n
-$$
 
 Belief change:
 
