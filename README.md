@@ -636,27 +636,19 @@ FINISHED STATEMENT 14/14: statement_13
 The following metrics quantify changes during systematic inquiry:
 
 $$
-\Delta B_{\mathrm{total}}
-=
-B_{\mathrm{final}}-B_{\mathrm{baseline}}
+\Delta B_{\mathrm{total}}=B_{\mathrm{final}}-B_{\mathrm{baseline}}
 $$
 
 where $\Delta B_{\mathrm{total}}$ measures the total change in belief from baseline to the final inquiry stage.
 
 $$
-\Delta C
-=
-C_{\mathrm{final}}-C_{\mathrm{baseline}}
+\Delta C=C_{\mathrm{final}}-C_{\mathrm{baseline}}
 $$
 
 where $\Delta C$ measures the change in confidence from baseline to the final inquiry stage.
 
 $$
-V_B
-=
-\frac{1}{n-1}
-\sum_{t=2}^{n}
-|B_t-B_{t-1}|
+V_B=\frac{1}{n-1}\sum_{t=2}^{n}|B_t-B_{t-1}|
 $$
 
 where $V_B$ measures the average absolute change in belief across the inquiry sequence. Missing belief values are excluded from the calculation.
