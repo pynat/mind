@@ -2,7 +2,7 @@
 
 ## Self-Inquiry
 
-Using self-inquiry to analyze LLM. The experiment investigates what happens when an LLM is asked to examine its own claims through structured self inquiry. It is meaasured: changes in self-reported beliefs, confidence, language, behavior, and internal representations.
+Using self-inquiry to analyze LLM "Qwen/Qwen3-8B" an open weight model. The experiment investigates what happens when an LLM is asked to examine its own claims through structured self inquiry. It is meaasured: changes in self-reported beliefs, confidence, language, behavior, and internal representations.
 
 
 **Can structured self-inquiry induce systematic changes in LLM self-representations, beliefs, and behavior?**
