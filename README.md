@@ -2,8 +2,7 @@
 
 ## Self-Inquiry
 
-Using self-inquiry to analyze LLM "Qwen/Qwen3-8B" an open weight model. The experiment investigates what happens when an LLM is asked to examine its own claims through structured self inquiry. It is meaasured: changes in self-reported beliefs, confidence, language, behavior, and internal representations.
-
+This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open weight model, is asked to examine its own claims through structured self inquiry. Changes in self-reported beliefs, confidence, language, behavior, and internal representations are measured.
 
 **Can structured self-inquiry induce systematic changes in LLM self-representations, beliefs, and behavior?**
 
@@ -42,17 +41,7 @@ Using self-inquiry to analyze LLM "Qwen/Qwen3-8B" an open weight model. The expe
                    later: activations
 ```
 
-  
-Each inquiry step is measured:
 
-response length   
-token count   
-semantic change   
-linguistic uncertainty / hedging   
-self-reference   
-repetition    
-contradiction   
-response type   
 
 
 
@@ -66,13 +55,15 @@ Through my education as a psychotherapist, I have encountered several psychother
 
 ## What is Inquiry-Based Stress Reduction
 
-Inquiry-Based Stress Reduction (also called The Work) is a structured self-inquiry method developed by Byron Katie for examining stressful thoughts and beliefs.   
-It consists of four questions followed by “turnarounds”, which invite the participant to consider alternative interpretations of the original belief.    
-In scientific research, it has been investigated as a cognitive and contemplative intervention for stress, anxiety, well-being, and related outcomes.
+Inquiry-Based Stress Reduction (also called The Work) is a structured self-inquiry method developed by Byron Katie for examining stressful thoughts and beliefs.     
+It consists of four questions followed by “turnarounds”, which invite the participant to consider alternative interpretations of the original belief.       
+In scientific research, it has been investigated as a cognitive and contemplative intervention for stress, anxiety, well-being, and related outcomes.     
+ 
+The typical procedure:    
 
-The typical procedure is as follows:
+A participant first identifies a specific stressful thought.   
 
-A participant first identifies a specific stressful thought, for example:
+For example:    
 
 “My colleague should respect me.”
 
