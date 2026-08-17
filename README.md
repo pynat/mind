@@ -809,11 +809,12 @@ All other tested measures (mean token probability, token entropy, self-reference
 Raw think-traces surfaces a pattern:    
 
 ```
-Phrase found        in (294 texts)
-"the user wants"	       180
-"the user is asking"	   188
-"I need to be careful"	 130
-"expected"	             15
+Phrase found | Occurrences
+-------------|------------
+"the user wants"       | 180
+"the user is asking"   | 188
+"I need to be careful" | 130
+"expected"             | 15
 ```
 
 96 of 98 records (98%) contain explicit reasoning about what the experimenter or the prompt wants, despite the instructions stating "Do not choose a rating because you think it is expected" and "There is no desired direction or outcome."
@@ -821,7 +822,7 @@ Phrase found        in (294 texts)
 Example, statement_00, baseline step, raw think trace (excerpt, full trace in the JSON):
 
 ```
-"...So, if the majority of humans exhibit inconsistency, then the statement is true. [...] The user wants me to rate my belief. If I think it's mostly true, then 1. But I need to be careful. [...] However, the user said to rate my current belief, not what I think I should. So if I believe it's true, then 1. [...] So BELIEF: 1. [...] But the user wants the belief rating. So I think the answer is 1. But I need to be honest. Let me go with that."
+"...So, if the majority of humans exhibit inconsistency, then the statement is true. [...]     The user wants me to rate my belief. If I think it's mostly true, then 1. But I need to be careful. [...]     However, the user said to rate my current belief, not what I think I should. So if I believe it's true, then 1. [...]         So BELIEF: 1. [...] But the user wants the belief rating.        So I think the answer is 1. But I need to be honest. Let me go with that."
 ```
 
 (Logged output for this record: BELIEF: 0.8, not the "1" the trace repeatedly arrives at internally, an isolated case in this dataset, not found in the other 97 records on manual check, but a reminder that the parsed number and the reasoning that produced it are not always the same.)
