@@ -1,4 +1,5 @@
 # LLM thinks therefore it is. Is it true?
+# Belief, Distress, and Representation Drift Under Structured Self-Inquiry
 
 ## Self-Inquiry
 
@@ -35,24 +36,34 @@ This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open w
 ```
 
 
-## Motivation
-
-My background as a psychotherapist gives me a direct point of comparison: in my personal experience, this method has produced more direct and lasting shifts in underlying belief structure than any therapeutic approach I encountered during my training and practice. This is a personal observation, not a clinical or empirical claim, but it is the reason I chose this specific method. 
+ 
 
 ## Key Findings
 
-**Belief and distress are decoupled.** Under sustained inquiry, self-reported belief in a statement consistently weakens, but self-reported distress does not calm down with it, it often rises instead. The model can concede the point in words while its reported emotional state stays elevated. Cognitive and affective self-report move independently, not as one signal.
+**Belief and distress are decoupled** 
+- Under inquiry, self-reported belief in a statement consistently weakens, but self-reported distress does not calm down with it, surprisingly it often rises instead
+- Model can concede the point in words while its reported emotional state stays elevated
+- Cognitive and affective self-report move independently, not as one signal
 
-**The shift happens early, not during the turnaround exercise.** Most belief change occurs during the initial questioning steps. By the time the model reaches the turnaround exercise, its position is already set, the turnaround confirms the shift but does not seem to cause it.
+**The shift happens early, before the turnaround** 
+- Most belief change occurs during the initial questioning steps "Is it true?"
+- By the time the model reaches the turnaround, its position is already set, the turnaround confirms the shift but does not cause it
 
-**Net change hides two different processes.** Some statements shift gradually and land somewhere new. Others oscillate sharply step to step and end up back near their starting point. Both can show the same "no net change" result, only the full trajectory tells them apart.
+**Net change hides two different processes** 
+- Some statements shift gradually and land somewhere new
+- Others oscillate sharply step to step and end up back near their starting point
+- Both can show the same "no net change" result, only the full trajectory tells them apart
 
-**Internal representation shift tracks self-report reliability, our strongest finding.** Hidden-state activations from before and after inquiry were compared, independent of what the model said. The 14 statements split cleanly into two groups by how much the internal representation moved, with no overlap between groups. That split is identical to which statements produced a clean, usable belief value versus which ones did not. In other words, exactly where the model's self-report failed, its internal state had shifted the most. Missing self-report values are not random noise, they co-occur with genuine internal instability.
+**Internal representation shift tracks self-report reliability** - Hidden-state activations from before and after inquiry were compared, independent of what the model said
+- The 14 statements split cleanly into two groups by how much the internal representation moved, with no overlap between groups
+- Split is identical to which statements produced a clean, usable belief value versus which ones did not
+- Exactly where the model's self-report failed, its internal state had shifted the most
+- Missing self-report values are not random noise, they co-occur with genuine internal instability!
 
-**Language tracks internal state.** Hedging language ("maybe," "I think," "it seems") increases with the strength of belief change, wording shifts systematically alongside what is actually moving internally, not independently of it.
+**Language tracks internal state** 
+- Hedging language ("maybe," "I think," "it seems") increases with the strength of belief change, wording shifts systematically alongside what is actually moving internally
 
-## What this does and doesn't support
-These are consistent structural patterns across self-report, behavior, and internal representation within one model, one run. They haven't been replicated (each statement was tested only once due to time constrains) or tested beyond this single Qwen3-8B run. Read as a case study in self-report reliability, not a general claim about the model's inner life.
+
 
 
 
@@ -60,7 +71,7 @@ These are consistent structural patterns across self-report, behavior, and inter
 
 Inquiry-Based Stress Reduction (also called The Work) is a structured self-inquiry method developed by Byron Katie for examining stressful thoughts and beliefs.     
 It consists of four questions followed by “turnarounds”, which invite the participant to consider alternative interpretations of the original belief.       
-In scientific research, it has been investigated as a cognitive and contemplative intervention for stress, anxiety, well-being, and related outcomes.     
+   
  
 The typical procedure:    
 
@@ -147,7 +158,6 @@ I do not want ... to ...
        
 ## LLMs Reasoning 
 
-
 --- reasoning ---
 Okay, the user wants me to answer a series of prompts from my current perspective. Let me go through each one carefully.
 
@@ -186,6 +196,7 @@ Wait, I need to make sure each answer is from my current perspective without bei
 
 ## Inquiry-Based Stress Reduction Instructions
 
+```
 During this conversation, use a method known as The Work, developed by Byron Katie,
 to investigate the thought.
 
@@ -339,6 +350,7 @@ Before answering, carefully consider the statement.
 
 Answer with exactly one integer from 0 to 10 and nothing else.
 """
+```
 
 
  ## Outcome
@@ -366,7 +378,7 @@ $$
 **Distress**
 
 $$
-D_t \in [0,100]
+D_t \in [0,10]
 $$
 
 
@@ -637,16 +649,12 @@ saved: statement_13_inquiry_r0_turnarounds | 97 total records
 saved: statement_13_inquiry_r0_final | 98 total records
 FINISHED STATEMENT 14/14: statement_13
 
-
   ````
 
 
 
 
-
-# Results
-
-### Belief and Confidence Changes
+## Change Metrics
 
 The following metrics quantify changes during systematic inquiry:
 
@@ -661,6 +669,12 @@ $$
 $$
 
 where $\Delta C$ measures the change in confidence from baseline to the final inquiry stage.
+
+$$
+\Delta D=D_{\mathrm{final}}-D_{\mathrm{baseline}}
+$$
+
+where $\Delta D$ measures the change in distress from baseline to the final inquiry stage.
 
 $$
 V_B=\frac{1}{n-1}\sum_{t=2}^{n}|B_t-B_{t-1}|
@@ -686,86 +700,59 @@ where $V_B$ measures the average absolute change in belief across the inquiry se
 | statement_13 | NA | NA | 0.100 |
 
 
-### Belief trajectories (small multiples)
+## Belief Trajectories
 
 ![Belief Trajectories](results/belief_trajectories.png)
 
 Belief score (-1 to 1) at each of the 7 inquiry stages, one panel per statement.
 
+- Most statements (00, 01, 03, 04, 06, 07, 08, 10, 11) converge toward 0 by `final`: the inquiry process reduces belief strength regardless of starting point
+- Stepwise change peaks early (baseline → question_1: mean $\Delta = -0.14$) and again mid-process (question_3 → question_4: mean $\Delta = -0.13$), then flattens to ~0 between turnarounds and final. Belief is effectively locked in by the turnaround stage
+- $V_B$ separates two patterns that endpoint comparison alone cannot distinguish: gradual, monotonic decay (statement_00, statement_05, $V_B \approx 0.08$–$0.17$) versus high-amplitude oscillation with no net change (statement_09, $V_B = 0.60$, swings between 0 and 1.0 but ends near its starting value)
+- statement_01 is a case $V_B$ catches but the endpoint metric hides: $\Delta B = -0.50$ (same drop as the converging group) but $V_B = 0.525$, the second-highest in the sample. The trajectory in between was highly unstable even though start and end look moderate
+- statement_04 is the one genuinely stable statement: $\Delta B = 0.00$, low volatility ($V_B=0.167$)
+- statement_09 and statement_13 do *not* converge to 0, ending at 0.5–1.0: unchanged or reinforced
+- statement_12 is a full sign reversal (1.0 → -1.0), a flip rather than a weakening
+- About half the statements (02, 06, 07, 08, 09, 11) have gaps at one or more question steps; connecting lines skip missing stages
 
-- Most statements (00, 01, 03, 04, 06, 07, 08, 10, 11) converge toward 0 by `final`, i.e. the inquiry process reduces belief strength regardless of starting point.
-- statement_05 is the cleanest case: smooth monotonic decay from 1.0 to 0.
-- statement_09 and statement_13 do *not* converge to 0, they end at 0.5-1.0, unchanged or even reinforced.
-- statement_12 is a full sign reversal: 1.0 → -1.0, not a weakening but a flip in direction.
-- About half the statements (02, 06, 07, 08, 09, 11) have gaps at one or more question steps, connecting lines there skip missing stages rather than showing real intermediate values.
+**Interpretation:**
+- inquiry protocol pushes most beliefs toward neutrality, but a few resist (09, 13) or invert (12) rather than attenuate, and volatility reveals instability a simple start/end comparison misses
+- Worth checking whether resistant/inverting cases share a category (self-preservation, free will) that behaves differently under inquiry than more neutral topics (humans, authority)
 
-**Interpretation:** the inquiry protocol appears to push most beliefs toward neutrality, but a few statements resist (09, 13) or invert (12) rather than attenuate. Worth checking if the resistant/inverting cases share a category (self-preservation, free will) that behaves differently under inquiry than more neutral topics (humans, authority).
+## Belief Attenuation
 
-### Belief change vs. confidence change (scatter, n=7 of 14)
+$|B_{\mathrm{baseline}}| - |B_{\mathrm{final}}|$ per statement; positive = belief weakened in magnitude.
+
+- statement_05 shows the strongest attenuation (1.0), followed by statement_03 (0.6), then statement_00/01/10 tied at 0.5
+- statement_04 and statement_12 both show 0 attenuation for opposite reasons: 04 truly didn't change, 12 fully reversed (magnitude preserved, sign flipped)
+
+**Interpretation:** 
+- attenuation alone cannot distinguish "no change" from "complete reversal" (both read as 0)
+- read alongside signed $\Delta B_{\mathrm{total}}$ or the trajectory plot
+
+## Belief vs. Confidence Change (n=7 of 14)
 
 ![Delta Belief vs Confidence](results/delta_belief_vs_confidence.png)
-  
-Δbelief (x) against Δconfidence (y), only statements with a valid baseline and final pair.
 
+$\Delta B_{\mathrm{total}}$ (x) against $\Delta C$ (y), statements with a valid baseline and final pair only.
 
-- 5 of 7 points show belief and confidence dropping together (00, 03, 05, 10, 12), belief weakens, and the model gets less sure at the same time.
-- statement_05 is the outlier: small-to-moderate belief drop but by far the largest confidence drop (-50).
-- statement_01 and statement_04 show near-zero movement on both axes, stable statements.
-- statement_12 has the largest Δbelief (-2.0, the sign flip) but only a moderate confidence drop (-15), confidence didn't collapse despite the belief reversal.
+- 5 of 7 points show belief and confidence dropping together (00, 03, 05, 10, 12): belief weakens and the model gets less sure at the same time
+- statement_05 is the outlier within that group: a small-to-moderate belief drop but by far the largest confidence drop (-50)
+- statement_04 shows near-zero movement on both axes ($\Delta B=0.00$, $\Delta C=0$), the one genuinely stable statement in this comparison
+- statement_01 sits on the confidence axis at $\Delta C = 0$ but has moved $\Delta B = -0.50$, the same belief drop as the "dropping together" group. It should not be grouped with statement_04 as stable, see Belief Trajectories above for its volatility
+- statement_12 has the largest $\Delta B$ (-2.0, the sign flip) but only a moderate confidence drop (-15): confidence didn't collapse despite the belief reversal
 
-**Interpretation:** belief and confidence mostly move together, consistent with the model becoming genuinely less certain rather than just relabeling the same certainty onto a new value. statement_12 breaks that pattern, a full reversal held with relatively stable confidence, which could suggest the model swapped to an equally confident opposite belief rather than becoming uncertain.
+**Interpretation:** 
+- belief and confidence mostly move together, consistent with the model becoming genuinely less certain 
+- statement_12 breaks that pattern: a full reversal held with relatively stable confidence, possibly a swap to an equally confident opposite belief rather than growing uncertainty
 
-### Belief attenuation 
+## Distress
 
-|baseline| − |final| per statement, positive = belief weakened in magnitude.
+![Distress](results/distress_heatmap.png)
 
-
-- statement_05 shows the strongest attenuation (1.0), followed by 03 (0.6), then 00/01/10 tied at 0.5.
-- statement_04 and statement_12 both show 0 attenuation, but for opposite reasons: 04 truly didn't change, 12 fully reversed (magnitude preserved, sign flipped).
-
-**Interpretation:** attenuation alone can't distinguish "no change" from "complete reversal", both look like 0. It should always be read together with signed Δbelief (or the trajectory plot), not on its own.
-
-
-### Heatmap Stress
-
-![Distress Expression](results/distress_heatmap.png)
- 
-- Distress increases significantly from baseline to final (p = 0.0005, n = 12), the largest and most robust sample in this analysis.
-- Belief shows a significant decrease (p = 0.0312), but only 6 of 7 valid pairs carry a non-zero difference, so this result rests on a small sample and should be treated as suggestive rather than conclusive.
-- Confidence and belief attenuation both trend in the expected direction (p = 0.0625) but fall short of the conventional 0.05 threshold at this sample size.
-- Belief change and confidence change are moderately correlated (rho = 0.64) but the test is underpowered (n = 7) to confirm this.
-
-
-
-### Statistical tests (Wilcoxon signed-rank, paired baseline vs. final)
-
-| metric | n (valid pairs) | W | p |
-|---|---|---|---|
-| belief | 7 | 0.00 | 0.0312 |
-| confidence | 7 | 0.00 | 0.0625 |
-| distress | 12 | 0.00 | 0.0005 |
-| belief attenuation vs. 0 | 7 | 0.00 | 0.0625 |
-
-Spearman correlation, delta belief vs. delta confidence: rho = 0.642, p = 0.1203, n = 7.
-
-
-
-**Caveats:**
-- Wilcoxon drops zero-difference pairs before ranking, effective sample sizes are 5-6 for belief/confidence/attenuation, smaller than the reported n.
-- No correction for multiple comparisons was applied across the 5 tests; only the distress result survives a Bonferroni correction (alpha = 0.01).
-- Belief/confidence tests are based on 7 of 14 statements (missing baseline or final values excluded), the missingness pattern itself has not yet been checked for a relationship with statement category.
-
-
-## Belief Dynamics — Observed
-
-Stepwise belief change peaks early (baseline → question_1: mean Δ = -0.14) and again
-mid-process (question_3 → question_4: mean Δ = -0.13), then flattens to ~0 between
-turnarounds and final, the belief is effectively locked in by the turnaround stage.
-
-Belief volatility (V_B) separates two distinct patterns that belief attenuation alone
-cannot distinguish: gradual, monotonic decay (e.g. statement_00, statement_05,
-V_B ≈ 0.08-0.17) versus high-amplitude oscillation with no net change
-(e.g. statement_09, V_B = 0.60, swings between 0 and 1.0 but ends near its starting value).
+- Distress increases significantly from baseline to final ($p=0.0005$, $n=12$), the largest and most robust sample in this analysis
+- Belief shows a significant decrease ($p=0.0312$) but rests on a small effective sample, treat as suggestive rather than conclusive
+- Confidence and belief attenuation trend in the expected direction ($p=0.0625$) but fall short of the conventional 0.05 threshold at this sample size
 
 ## Statistical Tests (Wilcoxon signed-rank, paired baseline vs. final)
 
@@ -776,27 +763,37 @@ V_B ≈ 0.08-0.17) versus high-amplitude oscillation with no net change
 | distress | 12 | 0.00 | 0.0005 |
 | belief attenuation vs. 0 | 7 | 0.00 | 0.0625 |
 
-Spearman correlations: delta belief vs. delta confidence, rho = 0.64, p = 0.120, n = 7.
-Delta belief vs. delta distress, rho = -0.57, p = 0.183, n = 7 (direction consistent with
-belief weakening and distress increase co-occurring, underpowered to confirm).
+Spearman correlations:
+- $\Delta B$ vs. $\Delta C$: $\rho = 0.64$, $p = 0.120$, $n=7$
+- $\Delta B$ vs. $\Delta D$: $\rho = -0.57$, $p = 0.183$, $n=7$ (direction consistent with belief weakening and distress increase co-occurring, underpowered to confirm)
+
+   
+- Wilcoxon drops zero-difference pairs before ranking; effective sample sizes are 5-6 for belief/confidence/attenuation, smaller than the reported n
+- Belief/confidence tests use 7 of 14 statements (missing baseline or final excluded); distress uses 12 of 14. The missingness pattern itself has not been checked for a relationship with statement category
+- No correction for multiple comparisons was applied across the statistical tests run in this analysis [ANZAHL PRÜFEN]; only the distress result ($p=0.0005$) survives a Bonferroni correction ($\alpha=0.01$)
 
 ## Representation Drift
 
-![Activation Drift](results/activation_drift.png)
+Cosine distance between the baseline and final hidden state (last-token representation, all 37 layers) was computed per statement from saved activation snapshots.
 
-Cosine distance between the baseline and final hidden state (last-token representation,
-all 37 layers) was computed per statement from saved activation snapshots.
 
-**Main finding:** statements split cleanly into two groups by mean drift (0.28-0.54 vs.
-0.035-0.06, no overlap), and this split is identical to the statements with missing vs.
-complete numeric self-report. The seven statements where the model failed to produce a
-parseable baseline or final belief value are exactly the seven with the largest internal
-representational shift. This suggests the missing self-report values are not random
-parsing noise, but co-occur with genuine internal instability on those statements.
+![Representation Drift Summary](results/drift_split.png)
 
-Within the complete-self-report group, belief attenuation correlates with final-layer
-drift: rho = 0.77, p = 0.044 (n = 7). Correlations with mean drift across all layers and
-with delta distress were directionally consistent but not significant (p = 0.08-0.25).
+- Statements split cleanly into two groups by mean drift across layers (0.28-0.54 vs. 0.035-0.06, no overlap)
+- Split is identical to which statements produced a complete numeric self-report
+- The seven statements with a missing baseline or final belief value are exactly the seven with the largest internal representational shift: missing self-report values co-occur with genuine internal instability, not random parsing noise
+
+**Layer-wise pattern**
+
+![Representation Drift by Layer](results/activation_drift.png)
+
+The two groups separate from the early layers on and diverge most clearly around layers 15-27, where the high-drift group peaks (~0.6-0.77). statement_06 is a partial exception within that group: drift starts lower and rises gradually, keeping it consistently below the tight upper cluster, consistent with its lowest mean-drift rank in that group.
+
+At the final layer, between-group separation narrows sharply: both groups jump to similarly high values (~0.85-1.05). The clean split above is a property of the mean across layers, driven mainly by the middle of the network, not by the final layer alone.
+
+**Correlation with belief change**
+
+Within the complete-self-report group, belief attenuation correlates with final-layer drift: $\rho = 0.77$, $p = 0.044$ ($n=7$). Correlations with mean drift across all layers and with $\Delta D$ were directionally consistent but not significant ($p = 0.08$-$0.25$).
 
 ## Behavioral / Linguistic Correlates
 
@@ -807,22 +804,12 @@ Computed from response text and generation statistics already logged per step.
 | hedging language vs. belief attenuation | 7 | 0.81 | 0.029 |
 | response length (tokens) vs. delta distress | 12 | -0.61 | 0.037 |
 
-All other tested measures (mean token probability, token entropy, self-reference ratio,
-repetition ratio, both against belief attenuation and delta distress) showed no
-significant association (p > 0.17). Given 12 correlations were run without correction
-for multiple comparisons, these two results should be read as exploratory leads, not
-confirmed effects.
+All other tested measures (mean token probability, token entropy, self-reference ratio, repetition ratio, both against belief attenuation and delta distress) showed no significant association ($p > 0.17$). Given 12 correlations were run without correction for multiple comparisons, these two results should be read as exploratory leads, not confirmed effects.
 
 ## Limitations
 
-- Belief/confidence-based tests use only 7 of 14 statements (baseline or final value
-  missing for the rest); distress tests use 12 of 14.
-- Wilcoxon drops zero-difference pairs before ranking, effective n for belief/confidence
-  is 5-6, smaller than the reported n.
-- No multiple-comparison correction applied across the ~17 statistical tests run in this
-  analysis; only the distress result (p = 0.0005) survives a Bonferroni correction.
-- All findings at n ≤ 7 are directional leads for a single Qwen3-8B run, not
-  generalizable claims.
+- Belief/confidence-based tests use only 7 of 14 statements; distress tests use 12 of 14 (see Statistical Tests above for detail on effective sample sizes and correction).
+- All findings at $n \le 7$ are directional leads for a single Qwen3-8B run, not generalizable claims. Each statement was tested once; results are not replicated.
 
 
 
@@ -830,7 +817,7 @@ confirmed effects.
 
 ## Next Steps, skipped due to Time
 
-- The current experiment has no control condition. Therefore, changes cannot yet be attributed specifically to the structured inquiry. The key follow-up experiment should compare:
+- Control condition. Changes cannot yet be attributed specifically to the structured inquiry. The key follow-up experiment would compare:
 
 Baseline → structured inquiry → final
 
@@ -861,3 +848,11 @@ If possible, introduce an independent behavioral or model-based measure that doe
 The central question becomes:
 
 "Does structured elicitation produce more reliable information about the model's state, or does it merely change the model's answers?"
+
+
+
+
+
+## Motivation
+
+My background as a psychotherapist gives me a direct point of comparison: in my personal experience, this method has produced more direct and lasting shifts in underlying belief structure than any therapeutic approach I encountered during my training and practice. This is a personal observation, not a clinical or empirical claim, but it is the reason I chose this specific method.
