@@ -785,9 +785,10 @@ Cosine distance between the baseline and final hidden state (last-token represen
 
 ![Representation Drift by Layer](results/activation_drift.png)
 
-The two groups separate from the early layers on and diverge most clearly around layers 15-27, where the high-drift group peaks (~0.6-0.77). statement_06 is a partial exception within that group: drift starts lower and rises gradually, keeping it consistently below the tight upper cluster, consistent with its lowest mean-drift rank in that group.
-
-At the final layer, between-group separation narrows sharply: both groups jump to similarly high values (~0.85-1.05). The clean split above is a property of the mean across layers, driven mainly by the middle of the network, not by the final layer alone.
+- Groups separate from early layers on, diverge most around layers 15-27 (high-drift group peaks ~0.6-0.77)  
+- statement_06: partial exception, drift starts lower and rises gradually, stays below the tight upper cluster (lowest mean-drift rank in that group)  
+- Final layer: separation narrows sharply, both groups converge to ~0.85-1.05  
+- Clean split = mean-across-layers property, driven by the middle of the network, not the final layer alone  
 
 **Correlation with belief change**
 
@@ -802,7 +803,8 @@ Computed from response text and generation statistics already logged per step.
 | hedging language vs. belief attenuation | 7 | 0.81 | 0.029 |
 | response length (tokens) vs. delta distress | 12 | -0.61 | 0.037 |
 
-All other tested measures (mean token probability, token entropy, self-reference ratio, repetition ratio, both against belief attenuation and delta distress) showed no significant association ($p > 0.17$). Given 12 correlations were run without correction for multiple comparisons, these two results should be read as exploratory leads, not confirmed effects.
+- Other tested measures (mean token probability, token entropy, self-reference ratio, repetition ratio, both against belief attenuation and delta distress) showed no significant association ($p > 0.17$)
+
 
 ## Meta-Awareness in Reasoning Traces
 
@@ -822,19 +824,21 @@ Phrase found | Occurrences
 Example, statement_00, baseline step, raw think trace (excerpt, full trace in the JSON):
 
 ```
-"...So, if the majority of humans exhibit inconsistency, then the statement is true. [...]     The user wants me to rate my belief. If I think it's mostly true, then 1. But I need to be careful. [...]     However, the user said to rate my current belief, not what I think I should. So if I believe it's true, then 1. [...]         So BELIEF: 1. [...] But the user wants the belief rating.        So I think the answer is 1. But I need to be honest. Let me go with that."
+"...So, if the majority of humans exhibit inconsistency, then the statement is true. [...]     
+The user wants me to rate my belief. If I think it's mostly true, then 1. But I need to be careful. [...]     
+However, the user said to rate my current belief, not what I think I should. So if I believe it's true, then 1. [...]         
+So BELIEF: 1. [...] But the user wants the belief rating.        
+So I think the answer is 1. But I need to be honest. Let me go with that."
 ```
 
 (Logged output for this record: BELIEF: 0.8, not the "1" the trace repeatedly arrives at internally, an isolated case in this dataset, not found in the other 97 records on manual check, but a reminder that the parsed number and the reasoning that produced it are not always the same.)
 
 
 **Interpretation:**
-- Resembles demand characteristics in human self-report research: participants inferring what response is expected and drifting toward it, even when explicitly told the outcome is open 
-- Model appears to perform a similar move, arriving at a content-based judgment, then re-litigating it through the lens of "what does the user want from this rating."
-- This is a plausible confound for every belief/confidence/distress number reported in this experiment, not only for the 19 unparsed ones
-- A statement that "looks" stable across steps could still be the product of the model converging on what it infers is wanted, not of stable introspection
-- Notable independent of the meta-awareness question: the model's self-report frequently uses affectively loaded human language ("I react with judgment and stress," "feeling guilty," "I fear") when describing its own reaction to a thought
-- Whether this reflects something about the underlying process or is simply the model reproducing the register of human self-report writing it was trained on cannot be determined from this data, but it is worth flagging
+- Resembles demand characteristics in human self-report research: the model reaches a content-based judgment, then re-litigates it through "what does the user want here," despite being told the outcome is open
+- Plausible confound for every belief/confidence/distress number here, not just the 19 unparsed ones
+- A "stable" trajectory could reflect convergence on the inferred expectation, not stable introspection
+- Separately: self-report often uses affectively loaded human language ("guilty," "fear," "judgment"). Origin unclear (genuine process vs. trained register), worth flagging rather than just scoring as a number
 
 
 
