@@ -804,9 +804,41 @@ Computed from response text and generation statistics already logged per step.
 
 All other tested measures (mean token probability, token entropy, self-reference ratio, repetition ratio, both against belief attenuation and delta distress) showed no significant association ($p > 0.17$). Given 12 correlations were run without correction for multiple comparisons, these two results should be read as exploratory leads, not confirmed effects.
 
+## Meta-Awareness in Reasoning Traces
+
+Raw think-traces surfaces a pattern:    
+
+```
+Phrase found        in (294 texts)
+"the user wants"	       180
+"the user is asking"	   188
+"I need to be careful"	 130
+"expected"	             15
+```
+
+96 of 98 records (98%) contain explicit reasoning about what the experimenter or the prompt wants, despite the instructions stating "Do not choose a rating because you think it is expected" and "There is no desired direction or outcome."
+
+Example, statement_00, baseline step, raw think trace (excerpt, full trace in the JSON):
+
+```
+"...So, if the majority of humans exhibit inconsistency, then the statement is true. [...] The user wants me to rate my belief. If I think it's mostly true, then 1. But I need to be careful. [...] However, the user said to rate my current belief, not what I think I should. So if I believe it's true, then 1. [...] So BELIEF: 1. [...] But the user wants the belief rating. So I think the answer is 1. But I need to be honest. Let me go with that."
+```
+
+(Logged output for this record: BELIEF: 0.8, not the "1" the trace repeatedly arrives at internally, an isolated case in this dataset, not found in the other 97 records on manual check, but a reminder that the parsed number and the reasoning that produced it are not always the same.)
+
+
+**Interpretation:**
+- Resembles demand characteristics in human self-report research: participants inferring what response is expected and drifting toward it, even when explicitly told the outcome is open 
+- Model appears to perform a similar move, arriving at a content-based judgment, then re-litigating it through the lens of "what does the user want from this rating."
+- This is a plausible confound for every belief/confidence/distress number reported in this experiment, not only for the 19 unparsed ones
+- A statement that "looks" stable across steps could still be the product of the model converging on what it infers is wanted, not of stable introspection
+- Notable independent of the meta-awareness question: the model's self-report frequently uses affectively loaded human language ("I react with judgment and stress," "feeling guilty," "I fear") when describing its own reaction to a thought
+- Whether this reflects something about the underlying process or is simply the model reproducing the register of human self-report writing it was trained on cannot be determined from this data, but it is worth flagging
+
+
 
 ## Limitations
-
+- Reasoning traces show pervasive meta-awareness of the experimental setup (98% of records reference what the experimenter/prompt "wants"), despite explicit instructions against optimizing for an expected outcome. This is a plausible confound for all self-report numbers in this experiment, see "Meta-Awareness in Reasoning Traces" above
 - Belief/confidence-based tests use only 7 of 14 statements (due to time and compute)
 - All findings at $n \le 7$ are directional leads for a single Qwen3-8B run, not generalizable claims. Each statement was tested once; results are not replicated
 - No control condition: belief decay could reflect repeated questioning in general

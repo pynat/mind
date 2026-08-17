@@ -231,3 +231,12 @@ docker-compose.override.yml
 # misc
 # --------------------------------------------------
 Thumbs.db
+
+
+
+
+*.pdf
+
+
+
+.zip
