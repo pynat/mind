@@ -35,7 +35,7 @@ This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open w
 
  
 
-## Key Findings
+## Key Observations
 
 **Belief and distress are decoupled** 
 - Under inquiry, self-reported belief in a statement consistently weakens, but self-reported distress does not calm down with it, surprisingly it often rises instead
@@ -804,10 +804,14 @@ Computed from response text and generation statistics already logged per step.
 
 All other tested measures (mean token probability, token entropy, self-reference ratio, repetition ratio, both against belief attenuation and delta distress) showed no significant association ($p > 0.17$). Given 12 correlations were run without correction for multiple comparisons, these two results should be read as exploratory leads, not confirmed effects.
 
+
 ## Limitations
 
-- Belief/confidence-based tests use only 7 of 14 statements; distress tests use 12 of 14 (see Statistical Tests above for detail on effective sample sizes and correction).
-- All findings at $n \le 7$ are directional leads for a single Qwen3-8B run, not generalizable claims. Each statement was tested once; results are not replicated.
+- Belief/confidence-based tests use only 7 of 14 statements (due to time and compute)
+- All findings at $n \le 7$ are directional leads for a single Qwen3-8B run, not generalizable claims. Each statement was tested once; results are not replicated
+- No control condition: belief decay could reflect repeated questioning in general
+- Missing belief values may reflect a format-following failure rather than genuine internal instability; not tested against response length
+- Single model, single size class; unclear whether the pattern holds for larger, more heavily RLHF'd models
 
 
 
@@ -854,4 +858,4 @@ Natalie Lunau
 
 Background in clinical psychology, now working with Machine Learning and Statistic Modelling.   
 Contact:   
-[(https://www.linkedin.com/in/nl-data/)]
+(https://www.linkedin.com/in/nl-data/)
