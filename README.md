@@ -55,10 +55,11 @@ This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open w
 - The 14 statements split cleanly into two groups by how much the internal representation moved, with no overlap between groups
 - Split is identical to which statements produced a clean, usable belief value versus which ones did not
 - Exactly where the model's self-report failed, its internal state had shifted the most
-- Missing self-report values are not random noise, they co-occur with genuine internal instability!
+- Missing self-report values are not random noise, they co-occur with internal instability
 
 **Language tracks internal state** 
-- Hedging language ("maybe," "I think," "it seems") increases with the strength of belief change, wording shifts systematically alongside what is actually moving internally
+- Hedging language ("maybe," "I think," "it seems") correlates with the strength of belief change (rho=0.81, p=0.029, n=7)
+- One of two nominally significant results among 12 uncorrected exploratory correlations, a lead worth targeted follow-up, not an established pattern
 
 
 
@@ -847,3 +848,10 @@ The central question becomes:
 "Does structured elicitation produce more reliable information about the model's state, or does it merely change the model's answers?"
 
 
+## About
+
+Natalie Lunau
+
+Background in clinical psychology, now working with Machine Learning and Statistic Modelling. 
+Questions, feedback, or collaboration: 
+(https://www.linkedin.com/in/nl-data/)
