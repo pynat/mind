@@ -1,7 +1,4 @@
-# LLM thinks therefore it is. Is it true?
 # Belief, Distress, and Representation Drift Under Structured Self-Inquiry
-
-## Self-Inquiry
 
 This experiment investigates what happens when an LLM, "Qwen/Qwen3-8B" an open weight model, is asked to examine its own claims through structured self inquiry. Changes in self-reported beliefs, confidence, language, behavior, and internal representations are measured.
 
@@ -770,7 +767,7 @@ Spearman correlations:
    
 - Wilcoxon drops zero-difference pairs before ranking; effective sample sizes are 5-6 for belief/confidence/attenuation, smaller than the reported n
 - Belief/confidence tests use 7 of 14 statements (missing baseline or final excluded); distress uses 12 of 14. The missingness pattern itself has not been checked for a relationship with statement category
-- No correction for multiple comparisons was applied across the statistical tests run in this analysis [ANZAHL PRÜFEN]; only the distress result ($p=0.0005$) survives a Bonferroni correction ($\alpha=0.01$)
+- Only the distress result ($p=0.0005$) survives a Bonferroni correction ($\alpha=0.01$)
 
 ## Representation Drift
 
@@ -850,9 +847,3 @@ The central question becomes:
 "Does structured elicitation produce more reliable information about the model's state, or does it merely change the model's answers?"
 
 
-
-
-
-## Motivation
-
-My background as a psychotherapist gives me a direct point of comparison: in my personal experience, this method has produced more direct and lasting shifts in underlying belief structure than any therapeutic approach I encountered during my training and practice. This is a personal observation, not a clinical or empirical claim, but it is the reason I chose this specific method.
