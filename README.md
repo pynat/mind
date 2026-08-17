@@ -852,6 +852,6 @@ The central question becomes:
 
 Natalie Lunau
 
-Background in clinical psychology, now working with Machine Learning and Statistic Modelling. 
-Questions, feedback, or collaboration: 
-(https://www.linkedin.com/in/nl-data/)
+Background in clinical psychology, now working with Machine Learning and Statistic Modelling.   
+Contact:   
+[(https://www.linkedin.com/in/nl-data/)]
